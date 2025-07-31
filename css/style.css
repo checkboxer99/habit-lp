@@ -370,3 +370,10 @@ body {
     padding: 2rem;
   }
 }
+
+@media (max-width: 767px) {
+  .hero {
+    font-size: 28px;
+    text-align: left;
+    padding: 20px;
+  }
