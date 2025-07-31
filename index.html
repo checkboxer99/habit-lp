@@ -4,92 +4,152 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ケーサポ株式会社 | 習慣が続く、人が支える</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-
-  <style>
-    .bg-hero {
-      background-image: url('https://source.unsplash.com/featured/?motivation,success');
-      background-size: cover;
-      background-position: center;
-    }
-  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="text-gray-800">
+<body>
   <!-- ヒーローセクション -->
-  <section class="bg-hero h-screen flex items-center justify-center text-center text-white px-4">
-    <div>
-      <h1 class="text-5xl font-extrabold mb-4 leading-tight">続けたい気持ちに、人の力を。</h1>
-      <p class="text-xl mb-8">あなたの"やりたい"を、私たちが一緒に習慣に変えます。</p>
-      <a href="#form" class="bg-green-500 text-white px-8 py-4 rounded-full hover:bg-green-600 text-lg">LINEで無料相談する</a>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>続けたい気持ちに、<br>人の力を。</h1>
+      <p>あなたの"やりたい"を、私たちが一緒に習慣に変えます。</p>
+      <a href="#form" class="cta-button">
+        <i class="fab fa-line"></i>
+        LINEで無料相談する
+      </a>
     </div>
   </section>
 
-  <!-- 共感・問題提起 -->
-  <section class="max-w-5xl mx-auto py-20 px-6 text-center">
-    <h2 class="text-3xl font-bold mb-6">三日坊主で終わってしまう、そんなあなたへ</h2>
-    <p class="text-lg mb-4">勉強、ダイエット、資格取得…。<br>やる気はあるのに続かないのは、あなただけのせいじゃありません。</p>
-    <p class="text-lg">私たちは、"人の力"で習慣を変えるサポート会社です。</p>
-  </section>
-
-  <!-- 解決策 -->
-  <section class="bg-gray-100 py-20 px-6 text-center">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl font-bold mb-6">続ける仕組み、支える人</h2>
-      <p class="text-lg">アプリ・電話・訪問によるリアルなサポート体制で、<br>あなた専属のサポーターが、継続できる環境を提供します。</p>
+  <!-- 問題提起セクション -->
+  <section class="problem-section">
+    <h2>三日坊主で終わってしまう、<br>そんなあなたへ</h2>
+    <div class="problem-text">
+      <p>勉強、ダイエット、資格取得…。<br>やる気はあるのに続かないのは、あなただけのせいじゃありません。</p>
+      <p style="margin-top: 1.5rem; font-weight: 600; color: #2d3748;">私たちは、"人の力"で習慣を変えるサポート会社です。</p>
     </div>
   </section>
 
-  <!-- 特徴 -->
-  <section class="max-w-6xl mx-auto py-20 px-6">
-    <h2 class="text-3xl font-bold text-center mb-12">サービスの特徴</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="p-6 border rounded-xl shadow">
-        <h3 class="text-xl font-semibold mb-2">オーダーメイド設計</h3>
-        <p>生活スタイルや性格に合わせた完全カスタム支援。</p>
+  <!-- 解決策セクション -->
+  <section class="solution-section">
+    <h2 style="font-size: clamp(2rem, 4vw, 3rem); color: #2d3748; margin-bottom: 2rem; text-align: center;">続ける仕組み、支える人</h2>
+    
+    <div class="solution-visual">
+      <div class="solution-icon">
+        <i class="fas fa-mobile-alt"></i>
       </div>
-      <div class="p-6 border rounded-xl shadow">
-        <h3 class="text-xl font-semibold mb-2">やる気不要の仕組み</h3>
-        <p>続けられるのは、習慣化のシステムがあるから。</p>
+      <div class="arrow">
+        <i class="fas fa-arrow-right"></i>
       </div>
-      <div class="p-6 border rounded-xl shadow">
-        <h3 class="text-xl font-semibold mb-2">人によるサポート</h3>
-        <p>毎日の声かけ、相談、寄り添い。人間だからこその安心感。</p>
+      <div class="solution-icon">
+        <i class="fas fa-phone"></i>
+      </div>
+      <div class="arrow">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+      <div class="solution-icon">
+        <i class="fas fa-home"></i>
+      </div>
+    </div>
+    
+    <p style="font-size: 1.2rem; color: #4a5568; max-width: 600px; margin: 0 auto; line-height: 1.8;">
+      アプリ・電話・訪問によるリアルなサポート体制で、<br>
+      あなた専属のサポーターが、継続できる環境を提供します。
+    </p>
+  </section>
+
+  <!-- 特徴セクション -->
+  <section class="features-section">
+    <h2 style="text-align: center; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem;">サービスの特徴</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-user-cog"></i>
+        </div>
+        <h3>オーダーメイド設計</h3>
+        <p>生活スタイルや性格に合わせた完全カスタム支援。あなただけの継続プランを作成します。</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-cogs"></i>
+        </div>
+        <h3>やる気不要の仕組み</h3>
+        <p>続けられるのは、習慣化のシステムがあるから。科学的根拠に基づいた継続メソッド。</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-hands-helping"></i>
+        </div>
+        <h3>人によるサポート</h3>
+        <p>毎日の声かけ、相談、寄り添い。人間だからこその安心感とモチベーション維持。</p>
       </div>
     </div>
   </section>
 
   <!-- 体験者の声 -->
-  <section class="bg-blue-50 py-20 px-6">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-8">続けられた声が届いています</h2>
-      <blockquote class="italic border-l-4 border-blue-400 pl-4 text-left">
-        「高校受験に向けて、毎日の勉強が続けられるようになりました。<br>毎朝のLINEで“今日もやろう”と思えるようになったのが大きいです！」<br><span class="text-sm text-gray-600">（高2 男性）</span>
-      </blockquote>
-    </div>
-  </section>
-
-  <!-- よくある質問 -->
-  <section class="max-w-4xl mx-auto py-20 px-6">
-    <h2 class="text-3xl font-bold text-center mb-8">よくある質問</h2>
-    <div class="space-y-6">
-      <div>
-        <h3 class="font-bold">Q. 対象はどんな人ですか？</h3>
-        <p>A. 高校生から30代前半まで、習慣化に悩むすべての方が対象です。</p>
+  <section class="testimonial-section">
+    <h2 style="text-align: center; font-size: clamp(2rem, 4vw, 3rem); color: #2d3748; margin-bottom: 2rem;">続けられた声が届いています</h2>
+    
+    <div class="testimonial-card">
+      <div class="testimonial-text">
+        高校受験に向けて、毎日の勉強が続けられるようになりました。<br>
+        毎朝のLINEで"今日もやろう"と思えるようになったのが大きいです！<br>
+        サポーターの方が本当に親身になってくれて、諦めそうになった時も支えてもらえました。
       </div>
-      <div>
-        <h3 class="font-bold">Q. 無料相談は本当に無料ですか？</h3>
-        <p>A. はい、LINE登録後の初回ヒアリングは完全無料で行っています。</p>
+      <div class="testimonial-author">
+        — 高2 男性
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section id="form" class="bg-green-500 text-white py-20 px-6 text-center">
-    <h2 class="text-3xl font-bold mb-4">あなた専属のサポーターと、今日から始めませんか？</h2>
-    <p class="mb-6 text-lg">LINE登録で無料相談がすぐにできます。</p>
-    <a href="https://line.me/R/ti/p/@your-line-id" target="_blank" class="bg-white text-green-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100">LINEで無料相談する</a>
+  <!-- FAQ -->
+  <section class="faq-section">
+    <h2 style="text-align: center; font-size: clamp(2rem, 4vw, 3rem); color: #2d3748; margin-bottom: 3rem;">よくある質問</h2>
+    
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Q. 対象はどんな人ですか？</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        A. 高校生から30代前半まで、習慣化に悩むすべての方が対象です。学習習慣、運動習慣、生活習慣など、どんな分野でもサポートいたします。
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Q. 無料相談は本当に無料ですか？</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        A. はい、LINE登録後の初回ヒアリングは完全無料で行っています。あなたの現状と目標をお聞きし、最適なサポートプランをご提案します。
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Q. サポート期間はどのくらいですか？</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        A. 習慣の定着には個人差がありますが、通常3ヶ月〜6ヶ月のプランをご用意しています。短期集中プランもございますので、ご相談ください。
+      </div>
+    </div>
   </section>
+
+  <!-- 最終CTA -->
+  <section id="form" class="final-cta">
+    <div class="final-cta-content">
+      <h2>あなた専属のサポーターと、<br>今日から始めませんか？</h2>
+      <p>LINE登録で無料相談がすぐにできます。</p>
+      <a href="https://line.me/R/ti/p/@your-line-id" target="_blank" class="cta-button pulse-button" style="background: white; color: #38a169; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+        <i class="fab fa-line"></i>
+        LINEで無料相談する
+      </a>
+    </div>
+  </section>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
