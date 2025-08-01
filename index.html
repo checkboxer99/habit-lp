@@ -6,8 +6,96 @@
   <title>ケーサポ株式会社 | 習慣が続く、人が支える</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  
+  <!-- ナビゲーション用の追加スタイル -->
+  <style>
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .navbar.visible {
+      transform: translateY(0);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #2d3748;
+      text-decoration: none;
+    }
+    
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    
+    .nav-menu a {
+      color: #2d3748;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-menu a:hover {
+      color: #667eea;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #2d3748;
+      cursor: pointer;
+    }
+    
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- ナビゲーションバー -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">ケーサポ</a>
+      <ul class="nav-menu">
+        <li><a href="#about">サービス概要</a></li>
+        <li><a href="#features">特徴</a></li>
+        <li><a href="#pricing">料金</a></li>
+        <li><a href="#testimonials">実績</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
   <!-- ヒーローセクション -->
   <section class="hero">
     <div class="hero-content">
@@ -21,7 +109,7 @@
   </section>
 
   <!-- 問題提起セクション -->
-  <section class="problem-section">
+  <section id="about" class="problem-section">
     <h2>三日坊主で終わってしまう、<br>そんなあなたへ</h2>
     <div class="problem-text">
       <p>勉強、ダイエット、資格取得…。<br>やる気はあるのに続かないのは、あなただけのせいじゃありません。</p>
@@ -58,7 +146,7 @@
   </section>
 
   <!-- 特徴セクション -->
-  <section class="features-section">
+  <section id="features" class="features-section">
     <h2 style="text-align: center; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem;">サービスの特徴</h2>
     <div class="features-grid">
       <div class="feature-card">
@@ -87,24 +175,178 @@
     </div>
   </section>
 
-  <!-- 体験者の声 -->
+  <!-- 料金プラン -->
+  <section id="pricing" class="pricing-section">
+    <h2 style="text-align: center; font-size: clamp(2rem, 4vw, 3rem); color: #2d3748; margin-bottom: 1rem;">料金プラン</h2>
+    <p style="text-align: center; color: #4a5568; margin-bottom: 3rem; font-size: 1.1rem;">あなたに最適なプランをお選びください</p>
+    
+    <div class="pricing-grid">
+      <div class="pricing-card basic">
+        <div class="plan-header">
+          <h3>ベーシックプラン</h3>
+          <div class="price">
+            <span class="currency">¥</span>
+            <span class="amount">9,800</span>
+            <span class="period">/月</span>
+          </div>
+          <p class="plan-description">習慣化をはじめたい方におすすめ</p>
+        </div>
+        <ul class="features-list">
+          <li><i class="fas fa-check"></i>週3回のLINEサポート</li>
+          <li><i class="fas fa-check"></i>習慣化プランの作成</li>
+          <li><i class="fas fa-check"></i>進捗レポート（月1回）</li>
+          <li><i class="fas fa-check"></i>基本的な相談対応</li>
+        </ul>
+        <a href="#form" class="plan-button">プランを選ぶ</a>
+      </div>
+      
+      <div class="pricing-card premium popular">
+        <div class="popular-badge">人気No.1</div>
+        <div class="plan-header">
+          <h3>プレミアムプラン</h3>
+          <div class="price">
+            <span class="currency">¥</span>
+            <span class="amount">19,800</span>
+            <span class="period">/月</span>
+          </div>
+          <p class="plan-description">本気で習慣を変えたい方向け</p>
+        </div>
+        <ul class="features-list">
+          <li><i class="fas fa-check"></i>毎日のLINEサポート</li>
+          <li><i class="fas fa-check"></i>オーダーメイド習慣プラン</li>
+          <li><i class="fas fa-check"></i>週1回の電話カウンセリング</li>
+          <li><i class="fas fa-check"></i>進捗レポート（週1回）</li>
+          <li><i class="fas fa-check"></i>24時間相談対応</li>
+          <li><i class="fas fa-check"></i>モチベーション動画配信</li>
+        </ul>
+        <a href="#form" class="plan-button">プランを選ぶ</a>
+      </div>
+      
+      <div class="pricing-card vip">
+        <div class="plan-header">
+          <h3>VIPプラン</h3>
+          <div class="price">
+            <span class="currency">¥</span>
+            <span class="amount">39,800</span>
+            <span class="period">/月</span>
+          </div>
+          <p class="plan-description">最高レベルのサポートを求める方へ</p>
+        </div>
+        <ul class="features-list">
+          <li><i class="fas fa-check"></i>プレミアムプランの全特典</li>
+          <li><i class="fas fa-check"></i>専属サポーターの訪問（月2回）</li>
+          <li><i class="fas fa-check"></i>家族へのサポート指導</li>
+          <li><i class="fas fa-check"></i>緊急時対応サービス</li>
+          <li><i class="fas fa-check"></i>成果保証制度</li>
+        </ul>
+        <a href="#form" class="plan-button">プランを選ぶ</a>
+      </div>
+    </div>
+    
+    <div class="pricing-note">
+      <p><i class="fas fa-info-circle"></i> 全プラン初回1週間無料体験付き・いつでも解約可能</p>
+    </div>
+  </section>
+
+  <!-- 実績・成功事例 -->
+  <section id="testimonials" class="results-section">
+    <h2 style="text-align: center; font-size: clamp(2rem, 4vw, 3rem); color: white; margin-bottom: 3rem;">選ばれる理由と実績</h2>
+    
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">98%</div>
+        <div class="stat-label">継続成功率</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">3,000+</div>
+        <div class="stat-label">サポート実績</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">4.9/5</div>
+        <div class="stat-label">満足度評価</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">84日</div>
+        <div class="stat-label">平均習慣化期間</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 体験者の声（拡張版） -->
   <section class="testimonial-section">
     <h2 style="text-align: center; font-size: clamp(2rem, 4vw, 3rem); color: #2d3748; margin-bottom: 2rem;">続けられた声が届いています</h2>
     
-    <div class="testimonial-card">
-      <div class="testimonial-text">
-        高校受験に向けて、毎日の勉強が続けられるようになりました。<br>
-        毎朝のLINEで"今日もやろう"と思えるようになったのが大きいです！<br>
-        サポーターの方が本当に親身になってくれて、諦めそうになった時も支えてもらえました。
+  <section class="testimonial-section">
+    <h2 style="text-align: center; font-size: clamp(2rem, 4vw, 3rem); color: #2d3748; margin-bottom: 2rem;">続けられた声が届いています</h2>
+    
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-text">
+          高校受験に向けて、毎日の勉強が続けられるようになりました。<br>
+          毎朝のLINEで"今日もやろう"と思えるようになったのが大きいです！<br>
+          サポーターの方が本当に親身になってくれて、諦めそうになった時も支えてもらえました。
+        </div>
+        <div class="testimonial-author">
+          <div class="author-info">
+            <div class="author-name">田中 翔太さん</div>
+            <div class="author-detail">高2 男性 / プレミアムプラン</div>
+          </div>
+          <div class="author-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
       </div>
-      <div class="testimonial-author">
-        — 高2 男性
+      
+      <div class="testimonial-card">
+        <div class="testimonial-text">
+          ダイエットで3ヶ月で8kg減量に成功！一人だと絶対に続かなかったと思います。<br>
+          食事記録や運動の習慣化ができて、リバウンドもしていません。<br>
+          人生が変わったと言っても過言ではありません。
+        </div>
+        <div class="testimonial-author">
+          <div class="author-info">
+            <div class="author-name">佐藤 美咲さん</div>
+            <div class="author-detail">大学生 女性 / VIPプラン</div>
+          </div>
+          <div class="author-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-text">
+          資格取得のための勉強習慣が身につきました。<br>
+          働きながらでも無理なく続けられる計画を一緒に立ててもらい、<br>
+          見事に宅建士の資格を取ることができました！
+        </div>
+        <div class="testimonial-author">
+          <div class="author-info">
+            <div class="author-name">山田 健一さん</div>
+            <div class="author-detail">会社員 29歳 / ベーシックプラン</div>
+          </div>
+          <div class="author-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="faq-section">
+  <section id="faq" class="faq-section">
     <h2 style="text-align: center; font-size: clamp(2rem, 4vw, 3rem); color: #2d3748; margin-bottom: 3rem;">よくある質問</h2>
     
     <div class="faq-item">
@@ -113,7 +355,7 @@
         <i class="fas fa-chevron-down"></i>
       </div>
       <div class="faq-answer">
-        A. 高校生から30代前半まで、習慣化に悩むすべての方が対象です。学習習慣、運動習慣、生活習慣など、どんな分野でもサポートいたします。
+        A. 高校生から30代前半まで、習慣化に悩むすべての方が対象です。学習習慣、運動習慣、生活習慣など、どんな分野でもサポートいたします。過去には勉強、ダイエット、読書、早起き、筋トレ、資格勉強などの習慣化をサポートした実績があります。
       </div>
     </div>
     
@@ -123,7 +365,7 @@
         <i class="fas fa-chevron-down"></i>
       </div>
       <div class="faq-answer">
-        A. はい、LINE登録後の初回ヒアリングは完全無料で行っています。あなたの現状と目標をお聞きし、最適なサポートプランをご提案します。
+        A. はい、LINE登録後の初回ヒアリングは完全無料で行っています。あなたの現状と目標をお聞きし、最適なサポートプランをご提案します。無理な勧誘は一切ございませんので、お気軽にご相談ください。
       </div>
     </div>
     
@@ -133,13 +375,63 @@
         <i class="fas fa-chevron-down"></i>
       </div>
       <div class="faq-answer">
-        A. 習慣の定着には個人差がありますが、通常3ヶ月〜6ヶ月のプランをご用意しています。短期集中プランもございますので、ご相談ください。
+        A. 習慣の定着には個人差がありますが、通常3ヶ月〜6ヶ月のプランをご用意しています。短期集中プラン（1ヶ月）から長期サポート（12ヶ月）まで、あなたの目標に合わせて選択可能です。
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Q. 本当に習慣が身につくんですか？</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        A. 98%の方が3ヶ月以内に目標とする習慣を身につけています。科学的根拠に基づいた習慣化メソッドと、専属サポーターによる個別対応で、確実に習慣化をサポートします。万が一効果を実感できない場合は、30日間返金保証もご用意しています。
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Q. 料金はいつ支払いますか？</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        A. 月額制で、毎月1日に翌月分をお支払いいただきます。クレジットカード、銀行振込に対応しています。初回は1週間無料体験後のお支払いとなりますので、まずはサービスを体験してからご判断ください。
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Q. 途中でプラン変更はできますか？</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        A. はい、いつでもプラン変更可能です。上位プランへの変更は即日適用、下位プランへの変更は翌月から適用されます。また、一時休止（最大3ヶ月）や解約も可能ですので、ライフスタイルに合わせてご利用ください。
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Q. どんなサポーターが担当しますか？</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        A. 心理学、コーチング、教育学などの専門知識を持つ認定サポーターが担当します。あなたの年齢、性格、目標に合わせて最適なサポーターをマッチングいたします。相性が合わない場合は、サポーター変更も可能です。
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Q. 家族にバレずに利用できますか？</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        A. はい、プライバシーは完全に保護されます。LINEでのやり取りは非公開設定で行い、必要に応じて通知をオフにすることも可能です。請求書も「オンライン学習サービス」などの名目で送付できますので、ご安心ください。
       </div>
     </div>
   </section>
 
   <!-- 最終CTA -->
-  <section id="form" class="final-cta">
+  <section id="contact" class="final-cta">
     <div class="final-cta-content">
       <h2>あなた専属のサポーターと、<br>今日から始めませんか？</h2>
       <p>LINE登録で無料相談がすぐにできます。</p>
