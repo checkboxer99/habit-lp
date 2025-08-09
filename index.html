@@ -5,725 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ケーサポ株式会社 | 習慣が続く、人が支える</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans JP', sans-serif;
-      line-height: 1.6;
-      color: #2d3748;
-      overflow-x: hidden;
-    }
-
-    /* ナビゲーションバー */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      padding: 1rem 2rem;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(0,0,0,0.1);
-      transform: translateY(-100%);
-      transition: transform 0.3s ease;
-    }
-    
-    .navbar.visible {
-      transform: translateY(0);
-    }
-    
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .nav-logo {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #2d3748;
-      text-decoration: none;
-    }
-    
-    .nav-menu {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-    
-    .nav-menu a {
-      color: #2d3748;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-    
-    .nav-menu a:hover {
-      color: #667eea;
-    }
-    
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: #2d3748;
-      cursor: pointer;
-      z-index: 1001;
-    }
-
-    /* ヒーローセクション */
-    .hero {
-      position: relative;
-      height: 100vh;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><circle cx="30" cy="30" r="2"/></g></svg>');
-      animation: float 20s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
-      padding: 0 2rem;
-      color: white;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 800;
-      margin-bottom: 1.5rem;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      animation: slideUp 1s ease-out;
-    }
-
-    .hero p {
-      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-      margin-bottom: 2.5rem;
-      opacity: 0.95;
-      animation: slideUp 1s ease-out 0.2s both;
-    }
-
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .cta-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: linear-gradient(135deg, #48bb78, #38a169);
-      color: white;
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      box-shadow: 0 10px 30px rgba(72, 187, 120, 0.4);
-      transition: all 0.3s ease;
-      animation: slideUp 1s ease-out 0.4s both;
-    }
-
-    .cta-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(72, 187, 120, 0.5);
-    }
-
-    /* 問題提起セクション */
-    .problem-section {
-      padding: 5rem 2rem;
-      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-      text-align: center;
-    }
-
-    .problem-section h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: #2d3748;
-      margin-bottom: 2rem;
-      position: relative;
-    }
-
-    .problem-section h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 4px;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      border-radius: 2px;
-    }
-
-    .problem-text {
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 1.2rem;
-      line-height: 1.8;
-      color: #4a5568;
-    }
-
-    /* 解決策セクション */
-    .solution-section {
-      padding: 5rem 2rem;
-      background: white;
-      text-align: center;
-    }
-
-    .solution-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      margin: 3rem 0;
-      flex-wrap: wrap;
-    }
-
-    .solution-icon {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 2.5rem;
-      box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
-      transition: transform 0.3s ease;
-    }
-
-    .solution-icon:hover {
-      transform: translateY(-10px);
-    }
-
-    .arrow {
-      font-size: 2rem;
-      color: #667eea;
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateX(0); }
-      40% { transform: translateX(-10px); }
-      60% { transform: translateX(5px); }
-    }
-
-    /* 特徴セクション */
-    .features-section {
-      padding: 5rem 2rem;
-      background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-      color: white;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 3rem auto 0;
-    }
-
-    .feature-card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 20px;
-      padding: 2.5rem;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-10px);
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    .feature-icon {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 1.5rem;
-      background: linear-gradient(135deg, #48bb78, #38a169);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      color: white;
-    }
-
-    .feature-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: #f7fafc;
-    }
-
-    /* 料金プラン */
-    .pricing-section {
-      padding: 5rem 2rem;
-      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-    }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .pricing-card {
-      background: white;
-      border-radius: 20px;
-      padding: 2.5rem;
-      text-align: center;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-      position: relative;
-      border: 2px solid transparent;
-    }
-
-    .pricing-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-    }
-
-    .pricing-card.popular {
-      border-color: #48bb78;
-      transform: scale(1.05);
-    }
-
-    .popular-badge {
-      position: absolute;
-      top: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(135deg, #48bb78, #38a169);
-      color: white;
-      padding: 0.5rem 1.5rem;
-      border-radius: 25px;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .plan-header h3 {
-      font-size: 1.8rem;
-      color: #2d3748;
-      margin-bottom: 1rem;
-    }
-
-    .price {
-      margin: 1.5rem 0;
-    }
-
-    .currency {
-      font-size: 1.2rem;
-      color: #4a5568;
-    }
-
-    .amount {
-      font-size: 3rem;
-      font-weight: 800;
-      color: #2d3748;
-    }
-
-    .period {
-      font-size: 1.1rem;
-      color: #4a5568;
-    }
-
-    .plan-description {
-      color: #718096;
-      margin-bottom: 2rem;
-    }
-
-    .features-list {
-      list-style: none;
-      text-align: left;
-      margin: 2rem 0;
-    }
-
-    .features-list li {
-      padding: 0.75rem 0;
-      color: #4a5568;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .features-list i {
-      color: #48bb78;
-      width: 16px;
-    }
-
-    .plan-button {
-      display: inline-block;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      margin-top: 1rem;
-    }
-
-    .plan-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-    }
-
-    .pricing-card.popular .plan-button {
-      background: linear-gradient(135deg, #48bb78, #38a169);
-    }
-
-    .pricing-note {
-      text-align: center;
-      margin-top: 3rem;
-      padding: 1.5rem;
-      background: rgba(72, 187, 120, 0.1);
-      border-radius: 15px;
-      color: #2d3748;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .pricing-note i {
-      color: #48bb78;
-      margin-right: 0.5rem;
-    }
-
-    /* 実績セクション */
-    .results-section {
-      padding: 5rem 2rem;
-      background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-      text-align: center;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 3rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .stat-item {
-      color: white;
-    }
-
-    .stat-number {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 800;
-      color: #48bb78;
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
-
-    /* 体験者の声 */
-    .testimonial-section {
-      padding: 5rem 2rem;
-      background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 3rem auto;
-    }
-
-    .testimonial-card {
-      background: white;
-      border-radius: 20px;
-      padding: 3rem;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-      position: relative;
-    }
-
-    .testimonial-card::before {
-      content: '"';
-      position: absolute;
-      top: -20px;
-      left: 30px;
-      font-size: 5rem;
-      color: #48bb78;
-      font-family: serif;
-    }
-
-    .testimonial-text {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      color: #2d3748;
-      margin-bottom: 1.5rem;
-      font-style: italic;
-    }
-
-    .testimonial-author {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      text-align: left;
-    }
-
-    .author-info {
-      flex: 1;
-    }
-
-    .author-name {
-      font-weight: 600;
-      color: #2d3748;
-      margin-bottom: 0.25rem;
-    }
-
-    .author-detail {
-      font-size: 0.9rem;
-      color: #718096;
-    }
-
-    .author-rating {
-      color: #ffd700;
-      font-size: 1.1rem;
-    }
-
-    /* FAQ */
-    .faq-section {
-      padding: 5rem 2rem;
-      background: white;
-    }
-
-    .faq-item {
-      max-width: 800px;
-      margin: 0 auto 2rem;
-      border: 1px solid #e2e8f0;
-      border-radius: 15px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .faq-item:hover {
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .faq-question {
-      background: #f7fafc;
-      padding: 1.5rem;
-      font-weight: 600;
-      color: #2d3748;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .faq-answer {
-      padding: 1.5rem;
-      color: #4a5568;
-      line-height: 1.7;
-      display: none;
-    }
-
-    /* 最終CTA */
-    .final-cta {
-      padding: 5rem 2rem;
-      background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
-      color: white;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .final-cta::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><path d="M50 50m-25 0a25,25 0 1,1 50,0a25,25 0 1,1 -50,0"/></g></svg>');
-      animation: rotate 30s linear infinite;
-    }
-
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .final-cta-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .final-cta h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin-bottom: 1.5rem;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
-
-    .final-cta p {
-      font-size: 1.3rem;
-      margin-bottom: 2.5rem;
-      opacity: 0.95;
-    }
-
-    .pulse-button {
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
-      70% { box-shadow: 0 0 0 20px rgba(255, 255, 255, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-    }
-
-    /* モバイル対応 */
-    @media (max-width: 768px) {
-      .nav-menu {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: white;
-        flex-direction: column;
-        gap: 0;
-        padding: 1rem 0;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-      }
-      
-      .nav-menu.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-      }
-      
-      .nav-menu li {
-        margin: 0;
-      }
-      
-      .nav-menu a {
-        display: block;
-        padding: 1rem 2rem;
-        border-bottom: 1px solid #f1f1f1;
-        font-size: 1.1rem;
-      }
-      
-      .nav-menu a:hover {
-        background: #f8f9fa;
-      }
-      
-      .mobile-menu-btn {
-        display: block;
-      }
-
-      .navbar {
-        padding: 1rem;
-      }
-
-      .solution-visual {
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-
-      .solution-icon {
-        width: 100px;
-        height: 100px;
-        font-size: 2rem;
-      }
-
-      .arrow {
-        transform: rotate(90deg);
-        font-size: 1.5rem;
-      }
-
-      .features-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        margin-top: 2rem;
-      }
-
-      .pricing-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        max-width: 400px;
-      }
-
-      .pricing-card.popular {
-        transform: none;
-        order: -1;
-      }
-
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        margin-top: 2rem;
-      }
-
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <!-- ナビゲーションバー -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
       <a href="#" class="nav-logo">ケーサポ</a>
-      <ul class="nav-menu" id="navMenu">
+      <ul class="nav-menu">
         <li><a href="#about">サービス概要</a></li>
         <li><a href="#features">特徴</a></li>
         <li><a href="#pricing">料金</a></li>
-        <li><a href="#testimonials">実績</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">お問い合わせ</a></li>
       </ul>
-      <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <button class="mobile-menu-btn">
         <i class="fas fa-bars"></i>
       </button>
     </div>
@@ -814,164 +110,73 @@
     <p style="text-align: center; color: #4a5568; margin-bottom: 3rem; font-size: 1.1rem;">あなたに最適なプランをお選びください</p>
     
     <div class="pricing-grid">
+      <!-- ライトプラン -->
       <div class="pricing-card basic">
         <div class="plan-header">
           <h3>ライトプラン</h3>
           <div class="price">
             <span class="currency">¥</span>
-            <span class="amount">3,000</span>
+            <span class="amount">3,980</span>
             <span class="period">/月</span>
           </div>
-          <p class="plan-description">習慣を軽く始めてみたい方におすすめ</p>
+          <p class="plan-description">習慣化の第一歩を始めたい方におすすめ</p>
         </div>
         <ul class="features-list">
-          <li><i class="fas fa-check"></i>毎日のLINEサポート</li>
-          <li><i class="fas fa-check"></i>週1回のチェックメッセージ</li>
-          <li><i class="fas fa-check"></i>簡単な習慣記録フォーム</li>
-          <li><i class="fas fa-check"></i>基本的な相談対応</li>
+          <li><i class="fas fa-check"></i>毎日の定型LINEサポート</li>
+          <li><i class="fas fa-check"></i>週1回の簡易返信（5分以内）</li>
+          <li><i class="fas fa-check"></i>月1回のフォームレビュー</li>
+          <li><i class="fas fa-check"></i>基本的な習慣記録管理</li>
         </ul>
-        <a href="#form" class="plan-button">プランを選ぶ</a>
+        <a href="#contact" class="plan-button">プランを選ぶ</a>
       </div>
       
+      <!-- スタンダードプラン -->
       <div class="pricing-card premium popular">
         <div class="popular-badge">人気No.1</div>
         <div class="plan-header">
           <h3>スタンダードプラン</h3>
           <div class="price">
             <span class="currency">¥</span>
-            <span class="amount">7,800</span>
+            <span class="amount">9,800</span>
             <span class="period">/月</span>
           </div>
-          <p class="plan-description">絶対に続けたい・誰かの支援が欲しい方向け</p>
+          <p class="plan-description">確実に習慣化したい方向けの定番プラン</p>
         </div>
         <ul class="features-list">
-          <li><i class="fas fa-check"></i>毎日の個別LINEサポート</li>
-          <li><i class="fas fa-check"></i>週1回の10〜15分通話</li>
-          <li><i class="fas fa-check"></i>習慣記録のフィードバック</li>
-          <li><i class="fas fa-check"></i>月1回の目標再設定サポート</li>
-          <li><i class="fas fa-check"></i>進捗レポート配信</li>
+          <li><i class="fas fa-check"></i>毎日のLINE（1日2回まで返信）</li>
+          <li><i class="fas fa-check"></i>週1回のZoom・電話（20分）</li>
+          <li><i class="fas fa-check"></i>習慣記録の詳細フィードバック</li>
+          <li><i class="fas fa-check"></i>月1回の改善提案サポート</li>
+          <li><i class="fas fa-check"></i>個別カスタム習慣プラン</li>
         </ul>
-        <a href="#form" class="plan-button">プランを選ぶ</a>
+        <a href="#contact" class="plan-button">プランを選ぶ</a>
       </div>
       
+      <!-- プレミアムプラン -->
       <div class="pricing-card vip">
         <div class="plan-header">
           <h3>プレミアムプラン</h3>
           <div class="price">
             <span class="currency">¥</span>
-            <span class="amount">16,800</span>
+            <span class="amount">19,800</span>
             <span class="period">/月</span>
           </div>
-          <p class="plan-description">徹底的な支援で確実に習慣化したい方へ</p>
+          <p class="plan-description">専属サポートで確実に人生を変えたい方</p>
         </div>
         <ul class="features-list">
-          <li><i class="fas fa-check"></i>毎日のLINE対応（応答付き）</li>
-          <li><i class="fas fa-check"></i>週2回のZoom・電話サポート</li>
-          <li><i class="fas fa-check"></i>行動記録レビュー＆改善提案</li>
-          <li><i class="fas fa-check"></i>カスタム目標管理表作成</li>
+          <li><i class="fas fa-check"></i>毎日の個別LINE（8〜20時対応）</li>
+          <li><i class="fas fa-check"></i>週2回のZoom・電話（15分）</li>
+          <li><i class="fas fa-check"></i>月1回の目標再設定セッション</li>
+          <li><i class="fas fa-check"></i>月1回の詳細改善提案レポート</li>
           <li><i class="fas fa-check"></i>緊急時モチベーション支援</li>
-          <li><i class="fas fa-check"></i>訪問対応（オプション）</li>
+          <li><i class="fas fa-check"></i>専属サポーターによる完全個別対応</li>
         </ul>
-        <a href="#form" class="plan-button">プランを選ぶ</a>
+        <a href="#contact" class="plan-button">プランを選ぶ</a>
       </div>
     </div>
     
     <div class="pricing-note">
       <p><i class="fas fa-info-circle"></i> 全プラン7日間無料体験付き・学生割引20%オフ・いつでも解約可能</p>
-    </div>
-  </section>
-
-  <!-- 実績・成功事例 -->
-  <section id="testimonials" class="results-section">
-    <h2 style="text-align: center; font-size: clamp(2rem, 4vw, 3rem); color: white; margin-bottom: 3rem;">選ばれる理由と実績</h2>
-    
-    <div class="stats-grid">
-      <div class="stat-item">
-        <div class="stat-number">98%</div>
-        <div class="stat-label">継続成功率</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">3,000+</div>
-        <div class="stat-label">サポート実績</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">4.9/5</div>
-        <div class="stat-label">満足度評価</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">84日</div>
-        <div class="stat-label">平均習慣化期間</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 体験者の声 -->
-  <section class="testimonial-section">
-    <h2 style="text-align: center; font-size: clamp(2rem, 4vw, 3rem); color: #2d3748; margin-bottom: 2rem;">続けられた声が届いています</h2>
-    
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="testimonial-text">
-          高校受験に向けて、毎日の勉強が続けられるようになりました。<br>
-          毎朝のLINEで"今日もやろう"と思えるようになったのが大きいです！<br>
-          サポーターの方が本当に親身になってくれて、諦めそうになった時も支えてもらえました。
-        </div>
-        <div class="testimonial-author">
-          <div class="author-info">
-            <div class="author-name">田中 翔太さん</div>
-            <div class="author-detail">高2 男性 / スタンダードプラン</div>
-          </div>
-          <div class="author-rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-        </div>
-      </div>
-      
-      <div class="testimonial-card">
-        <div class="testimonial-text">
-          ダイエットで3ヶ月で8kg減量に成功！一人だと絶対に続かなかったと思います。<br>
-          食事記録や運動の習慣化ができて、リバウンドもしていません。<br>
-          人生が変わったと言っても過言ではありません。
-        </div>
-        <div class="testimonial-author">
-          <div class="author-info">
-            <div class="author-name">佐藤 美咲さん</div>
-            <div class="author-detail">大学生 女性 / プレミアムプラン</div>
-          </div>
-          <div class="author-rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-        </div>
-      </div>
-      
-      <div class="testimonial-card">
-        <div class="testimonial-text">
-          資格取得のための勉強習慣が身につきました。<br>
-          働きながらでも無理なく続けられる計画を一緒に立ててもらい、<br>
-          見事に宅建士の資格を取ることができました！
-        </div>
-        <div class="testimonial-author">
-          <div class="author-info">
-            <div class="author-name">山田 健一さん</div>
-            <div class="author-detail">会社員 29歳 / ライトプラン</div>
-          </div>
-          <div class="author-rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -985,7 +190,7 @@
         <i class="fas fa-chevron-down"></i>
       </div>
       <div class="faq-answer">
-        A. 高校生から30代前半まで、習慣化に悩むすべての方が対象です。学習習慣、運動習慣、生活習慣など、どんな分野でもサポートいたします。過去には勉強、ダイエット、読書、早起き、筋トレ、資格勉強などの習慣化をサポートした実績があります。
+        A. 高校生から30代前半まで、習慣化に悩むすべての方が対象です。学習習慣、運動習慣、生活習慣など、どんな分野でもサポートいたします。勉強、ダイエット、読書、早起き、筋トレ、資格勉強など、様々な習慣化をお手伝いします。
       </div>
     </div>
     
@@ -1015,7 +220,7 @@
         <i class="fas fa-chevron-down"></i>
       </div>
       <div class="faq-answer">
-        A. 98%の方が3ヶ月以内に目標とする習慣を身につけています。科学的根拠に基づいた習慣化メソッドと、専属サポーターによる個別対応で、確実に習慣化をサポートします。万が一効果を実感できない場合は、30日間返金保証もご用意しています。
+        A. 科学的根拠に基づいた習慣化メソッドと、専属サポーターによる個別対応で、確実に習慣化をサポートします。一人ひとりに合わせたオーダーメイドプランで、無理なく続けられる仕組みを作ります。万が一効果を実感できない場合は、30日間返金保証もご用意しています。
       </div>
     </div>
     
@@ -1025,7 +230,7 @@
         <i class="fas fa-chevron-down"></i>
       </div>
       <div class="faq-answer">
-        A. 月額制で、毎月1日に翌月分をお支払いいただきます。クレジットカード、銀行振込に対応しています。初回は7日間無料体験後のお支払いとなりますので、まずはサービスを体験してからご判断ください。
+        A. 月額制で、毎月1日に翌月分をお支払いいただきます。クレジットカード、銀行振込に対応しています。初回は1週間無料体験後のお支払いとなりますので、まずはサービスを体験してからご判断ください。
       </div>
     </div>
     
@@ -1072,164 +277,6 @@
     </div>
   </section>
 
-  <script>
-    // DOMが読み込まれた後に実行
-    document.addEventListener('DOMContentLoaded', function() {
-      
-      // モバイル対応：ナビゲーションバーの表示制御
-      let lastScrollTop = 0;
-      const navbar = document.getElementById('navbar');
-      
-      window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > 100) {
-          navbar.classList.add('visible');
-          
-          // モバイルでのスクロール方向による表示制御
-          if (window.innerWidth <= 768) {
-            if (scrollTop > lastScrollTop && scrollTop > 200) {
-              // 下スクロール時は非表示
-              navbar.style.transform = 'translateY(-100%)';
-            } else {
-              // 上スクロール時は表示
-              navbar.style.transform = 'translateY(0)';
-            }
-          }
-        } else {
-          navbar.classList.remove('visible');
-        }
-        
-        lastScrollTop = scrollTop;
-      }, { passive: true });
-      
-      // モバイルメニューの制御
-      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-      const navMenu = document.getElementById('navMenu');
-      
-      if (mobileMenuBtn && navMenu) {
-        mobileMenuBtn.addEventListener('click', function() {
-          navMenu.classList.toggle('active');
-          const icon = this.querySelector('i');
-          
-          if (navMenu.classList.contains('active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-            // モバイルメニューが開いた時の処理
-            document.body.style.overflow = 'hidden';
-          } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-            document.body.style.overflow = '';
-          }
-        });
-        
-        // メニューリンクをクリックした時にメニューを閉じる
-        navMenu.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', function() {
-            navMenu.classList.remove('active');
-            mobileMenuBtn.querySelector('i').classList.remove('fa-times');
-            mobileMenuBtn.querySelector('i').classList.add('fa-bars');
-            document.body.style.overflow = '';
-          });
-        });
-      }
-      
-      // スムーススクロール機能（モバイル最適化）
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            const offsetTop = target.offsetTop - (window.innerWidth <= 768 ? 80 : 100);
-            window.scrollTo({
-              top: offsetTop,
-              behavior: 'smooth'
-            });
-          }
-        });
-      });
-
-      // FAQ アコーディオン機能（モバイル最適化）
-      document.querySelectorAll('.faq-question').forEach(question => {
-        question.addEventListener('click', function() {
-          const faqItem = this.parentElement;
-          const answer = faqItem.querySelector('.faq-answer');
-          const icon = this.querySelector('i');
-          
-          // 他のFAQを閉じる（モバイルでは一つずつ開く）
-          if (window.innerWidth <= 768) {
-            document.querySelectorAll('.faq-item').forEach(item => {
-              if (item !== faqItem) {
-                const otherAnswer = item.querySelector('.faq-answer');
-                const otherIcon = item.querySelector('.faq-question i');
-                if (otherAnswer.style.display === 'block') {
-                  otherAnswer.style.display = 'none';
-                  otherIcon.style.transform = 'rotate(0deg)';
-                }
-              }
-            });
-          }
-          
-          // 現在のFAQを開閉
-          if (answer.style.display === 'block') {
-            answer.style.display = 'none';
-            icon.style.transform = 'rotate(0deg)';
-          } else {
-            answer.style.display = 'block';
-            icon.style.transform = 'rotate(180deg)';
-            
-            // モバイルでFAQが開いた時、少し上にスクロール
-            if (window.innerWidth <= 768) {
-              setTimeout(() => {
-                const rect = faqItem.getBoundingClientRect();
-                if (rect.top < 100) {
-                  window.scrollTo({
-                    top: window.pageYOffset + rect.top - 120,
-                    behavior: 'smooth'
-                  });
-                }
-              }, 300);
-            }
-          }
-        });
-      });
-
-      // 初期状態でFAQの回答を非表示
-      document.querySelectorAll('.faq-answer').forEach(answer => {
-        answer.style.display = 'none';
-      });
-
-      // iOS Safari対応：100vh問題の解決
-      function setVH() {
-        const vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-      }
-      
-      setVH();
-      window.addEventListener('resize', setVH, { passive: true });
-
-      // モバイル向け：画面サイズ変更時の対応
-      let resizeTimer;
-      window.addEventListener('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function() {
-          // 画面サイズが変わった時の処理
-          if (window.innerWidth > 768) {
-            // デスクトップサイズになった時、モバイルメニューを閉じる
-            const navMenu = document.getElementById('navMenu');
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            if (navMenu && navMenu.classList.contains('active')) {
-              navMenu.classList.remove('active');
-              mobileMenuBtn.querySelector('i').classList.remove('fa-times');
-              mobileMenuBtn.querySelector('i').classList.add('fa-bars');
-              document.body.style.overflow = '';
-            }
-          }
-        }, 250);
-      }, { passive: true });
-
-    });
-  </script>
+  <script src="js/script.js"></script>
 </body>
 </html>

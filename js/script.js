@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }, observerOptions);
 
   // アニメーション対象の要素を監視
-  document.querySelectorAll('.feature-card, .testimonial-card, .faq-item, .pricing-card').forEach(el => {
+  document.querySelectorAll('.feature-card, .faq-item, .pricing-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';

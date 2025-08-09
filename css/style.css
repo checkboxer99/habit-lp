@@ -1,213 +1,4 @@
-line-height: 1.7;
-}
-
-/* 料金プラン */
-.pricing-section {
-  padding: 5rem 2rem;
-  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-}
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.pricing-card {
-  background: white;
-  border-radius: 20px;
-  padding: 2.5rem;
-  text-align: center;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  position: relative;
-  border: 2px solid transparent;
-}
-
-.pricing-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-}
-
-.pricing-card.popular {
-  border-color: #48bb78;
-  transform: scale(1.05);
-}
-
-.popular-badge {
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(135deg, #48bb78, #38a169);
-  color: white;
-  padding: 0.5rem 1.5rem;
-  border-radius: 25px;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.plan-header h3 {
-  font-size: 1.8rem;
-  color: #2d3748;
-  margin-bottom: 1rem;
-}
-
-.price {
-  margin: 1.5rem 0;
-}
-
-.currency {
-  font-size: 1.2rem;
-  color: #4a5568;
-}
-
-.amount {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #2d3748;
-}
-
-.period {
-  font-size: 1.1rem;
-  color: #4a5568;
-}
-
-.plan-description {
-  color: #718096;
-  margin-bottom: 2rem;
-}
-
-.features-list {
-  list-style: none;
-  text-align: left;
-  margin: 2rem 0;
-}
-
-.features-list li {
-  padding: 0.75rem 0;
-  color: #4a5568;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.features-list i {
-  color: #48bb78;
-  width: 16px;
-}
-
-.plan-button {
-  display: inline-block;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  margin-top: 1rem;
-}
-
-.plan-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-}
-
-.pricing-card.popular .plan-button {
-  background: linear-gradient(135deg, #48bb78, #38a169);
-}
-
-.pricing-note {
-  text-align: center;
-  margin-top: 3rem;
-  padding: 1.5rem;
-  background: rgba(72, 187, 120, 0.1);
-  border-radius: 15px;
-  color: #2d3748;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.pricing-note i {
-  color: #48bb78;
-  margin-right: 0.5rem;
-}
-
-/* 実績セクション */
-.results-section {
-  padding: 5rem 2rem;
-  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-  text-align: center;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 3rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.stat-item {
-  color: white;
-}
-
-.stat-number {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 800;
-  color: #48bb78;
-  margin-bottom: 0.5rem;
-}
-
-.stat-label {
-  font-size: 1.2rem;
-  opacity: 0.9;
-}
-
-/* 体験者の声（拡張） */
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 3rem auto;
-}
-
-.testimonial-card {
-  max-width: none;
-  margin: 0;
-}
-
-.testimonial-author {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: left;
-}
-
-.author-info {
-  flex: 1;
-}
-
-.author-name {
-  font-weight: 600;
-  color: #2d3748;
-  margin-bottom: 0.25rem;
-}
-
-.author-detail {
-  font-size: 0.9rem;
-  color: #718096;
-}
-
-.author-rating {
-  color: #ffd700;
-  font-size: 1.1rem;
-}* {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -280,54 +71,6 @@ body {
   font-size: 1.5rem;
   color: #2d3748;
   cursor: pointer;
-}
-
-/* モバイルメニュー */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 1rem;
-  }
-  
-  .nav-menu {
-    position: fixed;
-    top: 70px;
-    left: 0;
-    right: 0;
-    background: white;
-    flex-direction: column;
-    gap: 0;
-    padding: 1rem 0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-  }
-  
-  .nav-menu.active {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-  }
-  
-  .nav-menu li {
-    margin: 0;
-  }
-  
-  .nav-menu a {
-    display: block;
-    padding: 1rem 2rem;
-    border-bottom: 1px solid #f1f1f1;
-    font-size: 1.1rem;
-  }
-  
-  .nav-menu a:hover {
-    background: #f8f9fa;
-  }
-  
-  .mobile-menu-btn {
-    display: block;
-  }
 }
 
 /* iOS Safari 100vh問題の解決 */
@@ -548,44 +291,147 @@ body {
   color: #f7fafc;
 }
 
-/* 体験者の声 */
-.testimonial-section {
+/* 料金プラン */
+.pricing-section {
   padding: 5rem 2rem;
-  background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
 }
 
-.testimonial-card {
-  max-width: 800px;
-  margin: 3rem auto;
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pricing-card {
   background: white;
   border-radius: 20px;
-  padding: 3rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
   position: relative;
+  border: 2px solid transparent;
 }
 
-.testimonial-card::before {
-  content: '"';
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.pricing-card.popular {
+  border-color: #48bb78;
+  transform: scale(1.05);
+}
+
+.popular-badge {
   position: absolute;
-  top: -20px;
-  left: 30px;
-  font-size: 5rem;
-  color: #48bb78;
-  font-family: serif;
-}
-
-.testimonial-text {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: #2d3748;
-  margin-bottom: 1.5rem;
-  font-style: italic;
-}
-
-.testimonial-author {
-  text-align: right;
-  color: #718096;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #48bb78, #38a169);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
   font-weight: 600;
+}
+
+.plan-header h3 {
+  font-size: 1.8rem;
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.price {
+  margin: 1.5rem 0;
+}
+
+.currency {
+  font-size: 1.2rem;
+  color: #4a5568;
+}
+
+.amount {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #2d3748;
+}
+
+.period {
+  font-size: 1.1rem;
+  color: #4a5568;
+}
+
+.plan-description {
+  color: #718096;
+  margin-bottom: 2rem;
+}
+
+.features-list {
+  list-style: none;
+  text-align: left;
+  margin: 2rem 0;
+}
+
+.features-list li {
+  padding: 0.75rem 0;
+  color: #4a5568;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.features-list i {
+  color: #48bb78;
+  width: 16px;
+}
+
+.plan-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  min-height: 50px;
+  width: 100%;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.plan-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.pricing-card.popular .plan-button {
+  background: linear-gradient(135deg, #48bb78, #38a169);
+}
+
+.pricing-note {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: rgba(72, 187, 120, 0.1);
+  border-radius: 15px;
+  color: #2d3748;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pricing-note i {
+  color: #48bb78;
+  margin-right: 0.5rem;
 }
 
 /* FAQ */
@@ -677,9 +523,8 @@ body {
   100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 
-/* レスポンシブ */
+/* モバイルメニュー */
 @media (max-width: 768px) {
-  /* ナビゲーション */
   .navbar {
     padding: 1rem;
   }
@@ -688,9 +533,55 @@ body {
     padding: 0;
   }
   
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    gap: 0;
+    padding: 1rem 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .nav-menu li {
+    margin: 0;
+  }
+  
+  .nav-menu a {
+    display: block;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #f1f1f1;
+    font-size: 1.1rem;
+  }
+  
+  .nav-menu a:hover {
+    background: #f8f9fa;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
   /* ヒーローセクション */
   .hero {
     padding: 0 1rem;
+    height: 100vh;
+    min-height: 600px;
   }
   
   .hero-content {
@@ -812,70 +703,10 @@ body {
     font-size: 0.9rem;
   }
   
-  .plan-button {
-    width: 100%;
-    padding: 1rem;
-    margin-top: 1.5rem;
-  }
-  
   .pricing-note {
     margin-top: 2rem;
     padding: 1rem;
     font-size: 0.9rem;
-  }
-  
-  /* 実績セクション */
-  .results-section {
-    padding: 3rem 1rem;
-  }
-  
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-  
-  .stat-number {
-    font-size: clamp(2rem, 8vw, 3rem);
-  }
-  
-  .stat-label {
-    font-size: 1rem;
-  }
-  
-  /* 体験者の声 */
-  .testimonial-section {
-    padding: 3rem 1rem;
-  }
-  
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-  
-  .testimonial-card {
-    padding: 2rem 1.5rem;
-  }
-  
-  .testimonial-card::before {
-    font-size: 3rem;
-    top: -15px;
-    left: 20px;
-  }
-  
-  .testimonial-text {
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-  
-  .testimonial-author {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-  
-  .author-rating {
-    align-self: flex-end;
   }
   
   /* FAQ */
@@ -948,15 +779,6 @@ body {
     font-size: 2rem;
   }
   
-  .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .testimonial-card {
-    padding: 1.5rem 1rem;
-  }
-  
   .faq-question {
     padding: 0.875rem;
   }
@@ -979,16 +801,8 @@ body {
     justify-self: center;
   }
   
-  .testimonials-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .stats-grid {
-    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -1005,10 +819,6 @@ body {
   
   .hero p {
     font-size: 1.1rem;
-  }
-  
-  .stats-grid {
-    grid-template-columns: repeat(4, 1fr);
   }
 }
 
