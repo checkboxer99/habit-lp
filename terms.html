@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>利用規約 | ケーサポ株式会社</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+      line-height: 1.7;
+      color: #2d3748;
+      background-color: #f7fafc;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .content {
+      background: white;
+      margin: 2rem auto 3rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .intro-section {
+      background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+      padding: 2rem;
+      text-align: center;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .intro-section h2 {
+      color: #2d3748;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .intro-section p {
+      color: #4a5568;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .terms-content {
+      padding: 2rem;
+    }
+
+    .article {
+      margin-bottom: 2.5rem;
+      padding: 1.5rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      background: #fafafa;
+      transition: all 0.3s ease;
+    }
+
+    .article:hover {
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .article h3 {
+      color: #38a169;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #38a169;
+      display: flex;
+      align-items: center;
+    }
+
+    .article-number {
+      background: #38a169;
+      color: white;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      margin-right: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .article p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .article ul {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+    }
+
+    .article li {
+      margin-bottom: 0.5rem;
+      color: #4a5568;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #fff2cd 0%, #fff2cd 100%);
+      padding: 1rem;
+      border-left: 4px solid #f6ad55;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+
+    .important {
+      background: linear-gradient(120deg, #fed7d7 0%, #fed7d7 100%);
+      padding: 1rem;
+      border-left: 4px solid #fc8181;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+
+    .contact-section {
+      background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .contact-section h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-button {
+      background: white;
+      color: #38a169;
+      padding: 0.8rem 2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .back-link {
+      text-align: center;
+      padding: 1rem 0 2rem;
+    }
+
+    .back-link a {
+      color: #38a169;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .back-link a:hover {
+      color: #2f855a;
+    }
+
+    .last-updated {
+      text-align: center;
+      color: #718096;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .container {
+        padding: 0 0.5rem;
+      }
+      
+      .content {
+        margin: 1rem auto 2rem;
+      }
+      
+      .intro-section,
+      .terms-content,
+      .contact-section {
+        padding: 1.5rem;
+      }
+      
+      .article {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .article h3 {
+        font-size: 1.1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+      }
+      
+      .article-number {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    /* スクロールアニメーション */
+    .article {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .article:nth-child(2) { animation-delay: 0.1s; }
+    .article:nth-child(3) { animation-delay: 0.2s; }
+    .article:nth-child(4) { animation-delay: 0.3s; }
+    .article:nth-child(5) { animation-delay: 0.4s; }
+    .article:nth-child(6) { animation-delay: 0.5s; }
+    .article:nth-child(7) { animation-delay: 0.6s; }
+    .article:nth-child(8) { animation-delay: 0.7s; }
+    .article:nth-child(9) { animation-delay: 0.8s; }
+    .article:nth-child(10) { animation-delay: 0.9s; }
+    .article:nth-child(11) { animation-delay: 1.0s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <h1>利用規約</h1>
+      <p>ケーサポ株式会社のサービス利用規約</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="content">
+      <div class="intro-section">
+        <h2>安心してご利用いただくために</h2>
+        <p>ケーサポのサービスをご利用いただく際のルールと条件について説明いたします。ご不明な点がございましたら、お気軽にお問い合わせください。</p>
+      </div>
+
+      <div class="terms-content">
+        <div class="last-updated">
+          <i class="fas fa-calendar-alt"></i> 最終更新日：2025年8月10日
+        </div>
+
+        <div class="article">
+          <h3><span class="article-number">1</span>目的</h3>
+          <p>本規約は、ユーザー（以下「利用者」といいます）が、ケーサポ（以下「当サービス」）を利用するにあたり、当サービスの提供者（以下「提供者」）との間で遵守すべき条件を定めるものです。</p>
+        </div>
+
+        <div class="article">
+          <h3><span class="article-number">2</span>サービス内容</h3>
+          <p>当サービスは、習慣の継続支援を目的とし、以下のサポートを提供します。</p>
+          <ul>
+            <li>LINEや電話、ビデオ通話による声かけ・進捗確認</li>
+            <li>習慣記録・目標設定のサポート</li>
+            <li>その他、提供者が適切と認める支援</li>
+          </ul>
+        </div>
+
+        <div class="article">
+          <h3><span class="article-number">3</span>契約の成立</h3>
+          <p>利用者が当サービスに申し込み、提供者が承認した時点で契約が成立します。</p>
+          <div class="highlight">
+            <p>提供者は、申込内容に虚偽や不適切な点がある場合、利用を拒否することができます。</p>
+          </div>
+        </div>
+
+        <div class="article">
+          <h3><span class="article-number">4</span>料金と支払い</h3>
+          <p>利用料金は申込時に提示する内容に基づき、毎月定額で請求されます。</p>
+          <p>支払方法は、銀行振込、PayPal、Stripe等、提供者が定める方法とします。</p>
+          <div class="important">
+            <p><strong>重要：</strong>一度支払われた料金は、いかなる理由があっても返金されません。</p>
+          </div>
+        </div>
+
+        <div class="article">
+          <h3><span class="article-number">5</span>サービスの提供期間と解約</h3>
+          <p>サービス提供期間は原則として申込月の1ヶ月間とし、自動更新されます。</p>
+          <div class="highlight">
+            <p>解約希望の場合は、次回更新日の7日前までに申し出るものとします。</p>
+          </div>
+        </div>
+
+        <div class="article">
+          <h3><span class="article-number">6</span>禁止事項</h3>
+          <p>利用者は以下の行為をしてはなりません：</p>
+          <ul>
+            <li>他人になりすます行為</li>
+            <li>提供者や他の利用者への誹謗中傷、迷惑行為</li>
+            <li>サービス内容の無断録音・録画・転載・転売</li>
+            <li>法令または公序良俗に反する行為</li>
+          </ul>
+        </div>
+
+        <div class="article">
+          <h3><span class="article-number">7</span>免責事項</h3>
+          <p>当サービスは、習慣継続を支援するものであり、その達成を保証するものではありません。</p>
+          <p>提供者は、通信環境や不可抗力によりサービスの中断・遅延が発生した場合でも、一切の責任を負いません。</p>
+          <p>利用者の過失または第三者とのトラブルについて、提供者は責任を負いません。</p>
+        </div>
+
+        <div class="article">
+          <h3><span class="article-number">8</span>個人情報の取り扱い</h3>
+          <div class="highlight">
+            <p>提供者は、利用者の個人情報をプライバシーポリシーに基づき適切に管理し、第三者に提供しません。</p>
+          </div>
+        </div>
+
+        <div class="article">
+          <h3><span class="article-number">9</span>規約の変更</h3>
+          <p>提供者は、必要に応じて本規約を変更することがあります。変更後の内容は、速やかに利用者に通知されるものとします。</p>
+        </div>
+
+        <div class="article">
+          <h3><span class="article-number">10</span>準拠法・管轄</h3>
+          <p>本規約は日本法に準拠し、万が一紛争が生じた場合は、提供者の所在地を管轄する裁判所を第一審の専属的合意管轄裁判所とします。</p>
+        </div>
+      </div>
+
+      <div class="contact-section">
+        <h3>ご質問・お問い合わせ</h3>
+        <p>利用規約について不明な点がございましたら、お気軽にお問い合わせください。</p>
+        <a href="https://lin.ee/YLMuQKg" target="_blank" rel="noopener noreferrer" class="contact-button">
+          <i class="fab fa-line"></i>
+          LINEで質問する
+        </a>
+      </div>
+    </div>
+
+    <div class="back-link">
+      <a href="index.html">
+        <i class="fas fa-arrow-left"></i>
+        トップページに戻る
+      </a>
+    </div>
+  </div>
+</body>
+</html>

@@ -73,16 +73,11 @@ body {
   cursor: pointer;
 }
 
-/* iOS Safari 100vh問題の解決 */
-.hero {
-  height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
-}
-
 /* ヒーローセクション */
 .hero {
   position: relative;
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   display: flex;
   align-items: center;
@@ -468,6 +463,7 @@ body {
   padding: 1.5rem;
   color: #4a5568;
   line-height: 1.7;
+  display: none;
 }
 
 /* 最終CTA */
@@ -523,7 +519,63 @@ body {
   100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 
-/* モバイルメニュー */
+/* フッター */
+.footer {
+  background: #1a202c;
+  color: #a0aec0;
+  padding: 2rem 0 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-links {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: #a0aec0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.85rem;
+}
+
+.footer-links a:hover {
+  color: #48bb78;
+}
+
+.footer-company {
+  margin-bottom: 1rem;
+}
+
+.footer-company h4 {
+  color: #f7fafc;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.footer-divider {
+  height: 1px;
+  background: #2d3748;
+  margin: 1rem 0;
+}
+
+.footer-copyright {
+  font-size: 0.8rem;
+  color: #718096;
+}
+
+/* レスポンシブ */
 @media (max-width: 768px) {
   .navbar {
     padding: 1rem;
@@ -573,11 +625,7 @@ body {
   .mobile-menu-btn {
     display: block;
   }
-}
 
-/* レスポンシブ */
-@media (max-width: 768px) {
-  /* ヒーローセクション */
   .hero {
     padding: 0 1rem;
     height: 100vh;
@@ -605,8 +653,7 @@ body {
     max-width: 300px;
     justify-content: center;
   }
-  
-  /* 問題提起セクション */
+
   .problem-section {
     padding: 3rem 1rem;
   }
@@ -620,8 +667,7 @@ body {
     font-size: 1rem;
     padding: 0 0.5rem;
   }
-  
-  /* 解決策セクション */
+
   .solution-section {
     padding: 3rem 1rem;
   }
@@ -641,8 +687,7 @@ body {
     transform: rotate(90deg);
     font-size: 1.5rem;
   }
-  
-  /* 特徴セクション */
+
   .features-section {
     padding: 3rem 1rem;
   }
@@ -663,8 +708,7 @@ body {
     font-size: 1.5rem;
     margin-bottom: 1rem;
   }
-  
-  /* 料金プラン */
+
   .pricing-section {
     padding: 3rem 1rem;
   }
@@ -708,8 +752,7 @@ body {
     padding: 1rem;
     font-size: 0.9rem;
   }
-  
-  /* FAQ */
+
   .faq-section {
     padding: 3rem 1rem;
   }
@@ -728,8 +771,7 @@ body {
     font-size: 0.9rem;
     line-height: 1.6;
   }
-  
-  /* 最終CTA */
+
   .final-cta {
     padding: 3rem 1rem;
   }
@@ -743,110 +785,19 @@ body {
     font-size: 1.1rem;
     margin-bottom: 2rem;
   }
-}
 
-/* 小さなスマホ対応 (iPhone SE など) */
-@media (max-width: 480px) {
-  .hero {
-    height: 100vh;
-    min-height: 600px;
+  .footer-links {
+    flex-direction: column;
+    gap: 1rem;
   }
-  
-  .hero h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .hero p {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .cta-button {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.95rem;
-  }
-  
-  .problem-section h2 {
-    font-size: 1.5rem;
-  }
-  
-  .pricing-card {
-    padding: 1.5rem 1rem;
-  }
-  
-  .amount {
-    font-size: 2rem;
-  }
-  
-  .faq-question {
-    padding: 0.875rem;
-  }
-  
-  .faq-answer {
-    padding: 0.875rem;
+
+  .footer-links a {
+    font-size: 0.9rem;
   }
 }
 
-/* タブレット対応 */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .pricing-grid {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 800px;
-  }
-  
-  .pricing-card.popular {
-    grid-column: 1 / -1;
-    max-width: 380px;
-    justify-self: center;
-  }
-  
-  .features-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* 横向きスマホ対応 */
-@media (max-width: 768px) and (orientation: landscape) {
-  .hero {
-    height: 100vh;
-    min-height: 500px;
-  }
-  
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-  
-  .hero p {
-    font-size: 1.1rem;
-  }
-}
-
-/* タッチデバイス用の改善 */
-@media (hover: none) and (pointer: coarse) {
-  .cta-button:hover,
-  .plan-button:hover,
-  .solution-icon:hover,
-  .feature-card:hover,
-  .pricing-card:hover,
-  .faq-item:hover {
-    transform: none;
-  }
-  
-  .cta-button:active,
-  .plan-button:active {
-    transform: scale(0.95);
-  }
-  
-  .faq-question {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
-  }
-}
-
-/* 高DPIディスプレイ対応 */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .hero::before,
-  .final-cta::before {
-    background-size: 30px 30px;
-  }
+/* iOS Safari対応 */
+.hero {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
 }
