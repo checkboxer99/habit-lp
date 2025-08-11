@@ -42,10 +42,16 @@ document.addEventListener('DOMContentLoaded', function() {
         icon.classList.add('fa-times');
         // モバイルメニューが開いた時の処理
         document.body.style.overflow = 'hidden';
+        // アクセシビリティ向上
+        this.setAttribute('aria-expanded', 'true');
+        this.setAttribute('aria-label', 'モバイルメニューを閉じる');
       } else {
         icon.classList.remove('fa-times');
         icon.classList.add('fa-bars');
         document.body.style.overflow = '';
+        // アクセシビリティ向上
+        this.setAttribute('aria-expanded', 'false');
+        this.setAttribute('aria-label', 'モバイルメニューを開く');
       }
     });
     
@@ -53,9 +59,13 @@ document.addEventListener('DOMContentLoaded', function() {
     navMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', function() {
         navMenu.classList.remove('active');
-        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
-        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
         document.body.style.overflow = '';
+        // アクセシビリティ向上
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        mobileMenuBtn.setAttribute('aria-label', 'モバイルメニューを開く');
       });
     });
   }
@@ -75,12 +85,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // FAQ アコーディオン機能（モバイル最適化）
+  // FAQ アコーディオン機能（アクセシビリティ対応）
   document.querySelectorAll('.faq-question').forEach(question => {
     question.addEventListener('click', function() {
       const faqItem = this.parentElement;
       const answer = faqItem.querySelector('.faq-answer');
       const icon = this.querySelector('i');
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
       
       // 他のFAQを閉じる（モバイルでは一つずつ開く）
       if (window.innerWidth <= 768) {
@@ -88,21 +99,25 @@ document.addEventListener('DOMContentLoaded', function() {
           if (item !== faqItem) {
             const otherAnswer = item.querySelector('.faq-answer');
             const otherIcon = item.querySelector('.faq-question i');
+            const otherButton = item.querySelector('.faq-question');
             if (otherAnswer.style.display === 'block') {
               otherAnswer.style.display = 'none';
               otherIcon.style.transform = 'rotate(0deg)';
+              otherButton.setAttribute('aria-expanded', 'false');
             }
           }
         });
       }
       
       // 現在のFAQを開閉
-      if (answer.style.display === 'block') {
+      if (isExpanded) {
         answer.style.display = 'none';
         icon.style.transform = 'rotate(0deg)';
+        this.setAttribute('aria-expanded', 'false');
       } else {
         answer.style.display = 'block';
         icon.style.transform = 'rotate(180deg)';
+        this.setAttribute('aria-expanded', 'true');
       }
     });
   });
@@ -115,4 +130,279 @@ document.addEventListener('DOMContentLoaded', function() {
   
   setVH();
   window.addEventListener('resize', setVH, { passive: true });
+
+  // パフォーマンス最適化：Intersection Observer を使用した遅延読み込み
+  if ('IntersectionObserver' in window) {
+    const observerOptions = {
+      root: null,
+      rootMargin: '50px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, observerOptions);
+
+    // アニメーション対象の要素を監視
+    document.querySelectorAll('.feature-card, .pricing-card, .faq-item').forEach(el => {
+      observer.observe(el);
+    });
+  }
+
+  // CTAボタンのクリック追跡（アナリティクス用）
+  document.querySelectorAll('.cta-button, .plan-button').forEach(button => {
+    button.addEventListener('click', function(e) {
+      // Google Analytics 4 イベント送信
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'click', {
+          'event_category': 'engagement',
+          'event_label': this.textContent.trim(),
+          'value': 1
+        });
+      }
+      
+      // Google Tag Manager データレイヤー
+      if (typeof dataLayer !== 'undefined') {
+        dataLayer.push({
+          'event': 'cta_click',
+          'cta_text': this.textContent.trim(),
+          'cta_position': this.closest('section') ? this.closest('section').id : 'unknown'
+        });
+      }
+    });
+  });
+
+  // フォーム送信の追跡
+  document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'form_submit', {
+          'event_category': 'engagement',
+          'event_label': 'contact_form',
+          'value': 1
+        });
+      }
+    });
+  });
+
+  // スクロール深度の追跡
+  let scrollTracked = {
+    25: false,
+    50: false,
+    75: false,
+    100: false
+  };
+
+  window.addEventListener('scroll', function() {
+    const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    
+    Object.keys(scrollTracked).forEach(percent => {
+      if (scrollPercent >= percent && !scrollTracked[percent]) {
+        scrollTracked[percent] = true;
+        
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'scroll', {
+            'event_category': 'engagement',
+            'event_label': `${percent}%`,
+            'value': parseInt(percent)
+          });
+        }
+      }
+    });
+  }, { passive: true });
+
+  // ページ読み込み完了時のパフォーマンス測定
+  window.addEventListener('load', function() {
+    if ('performance' in window && 'timing' in performance) {
+      const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+      
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'timing_complete', {
+          'name': 'page_load',
+          'value': loadTime
+        });
+      }
+    }
+
+    // Core Web Vitals の測定
+    if ('web-vitals' in window) {
+      // Web Vitals ライブラリが利用可能な場合
+      webVitals.getCLS(console.log);
+      webVitals.getFID(console.log);
+      webVitals.getLCP(console.log);
+    }
+  });
+
+  // エラートラッキング
+  window.addEventListener('error', function(e) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'exception', {
+        'description': e.message,
+        'fatal': false
+      });
+    }
+  });
+
+  // プリロードされたリソースの活用
+  function preloadCriticalResources() {
+    const criticalImages = [
+      '/images/og-image.jpg',
+      '/images/logo.png'
+    ];
+
+    criticalImages.forEach(src => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = src;
+      document.head.appendChild(link);
+    });
+  }
+
+  // Service Worker の登録（PWA対応）
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js')
+        .then(function(registration) {
+          console.log('ServiceWorker registration successful');
+        })
+        .catch(function(err) {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+
+  // キーボードナビゲーション対応
+  document.addEventListener('keydown', function(e) {
+    // Escキーでモバイルメニューを閉じる
+    if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
+      navMenu.classList.remove('active');
+      const icon = mobileMenuBtn.querySelector('i');
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+      document.body.style.overflow = '';
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      mobileMenuBtn.focus();
+    }
+
+    // Enterキーでリンクを実行
+    if (e.key === 'Enter' && e.target.classList.contains('cta-button')) {
+      e.target.click();
+    }
+  });
+
+  // タッチデバイス対応の改善
+  let touchStartY = 0;
+  let touchEndY = 0;
+
+  document.addEventListener('touchstart', function(e) {
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
+
+  document.addEventListener('touchend', function(e) {
+    touchEndY = e.changedTouches[0].screenY;
+    handleSwipeGesture();
+  }, { passive: true });
+
+  function handleSwipeGesture() {
+    const swipeThreshold = 50;
+    const diff = touchStartY - touchEndY;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        // 上方向のスワイプ - ナビゲーションを非表示
+        if (navbar && window.innerWidth <= 768) {
+          navbar.style.transform = 'translateY(-100%)';
+        }
+      } else {
+        // 下方向のスワイプ - ナビゲーションを表示
+        if (navbar && window.innerWidth <= 768 && window.scrollY > 100) {
+          navbar.style.transform = 'translateY(0)';
+        }
+      }
+    }
+  }
+
+  // レイジーローディング（画像の遅延読み込み）
+  function lazyLoadImages() {
+    const images = document.querySelectorAll('img[data-src]');
+    
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.classList.remove('lazy');
+            imageObserver.unobserve(img);
+          }
+        });
+      });
+
+      images.forEach(img => imageObserver.observe(img));
+    } else {
+      // IntersectionObserver がサポートされていない場合のフォールバック
+      images.forEach(img => {
+        img.src = img.dataset.src;
+        img.classList.remove('lazy');
+      });
+    }
+  }
+
+  // 初期化関数を実行
+  lazyLoadImages();
+  preloadCriticalResources();
+
+  // リサイズ時の最適化
+  let resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      setVH();
+      
+      // モバイルメニューをリセット
+      if (window.innerWidth > 768 && navMenu) {
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+        if (mobileMenuBtn) {
+          const icon = mobileMenuBtn.querySelector('i');
+          if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
+      }
+    }, 250);
+  }, { passive: true });
+
+  // デバッグ用の関数（開発時のみ有効化）
+  function debugPerformance() {
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      console.log('Performance Debug Mode');
+      
+      // Navigation Timing API
+      if (performance.timing) {
+        const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+        console.log(`Page Load Time: ${loadTime}ms`);
+      }
+
+      // Resource Timing API
+      if (performance.getEntriesByType) {
+        const resources = performance.getEntriesByType('resource');
+        const slowResources = resources.filter(resource => resource.duration > 100);
+        console.log('Slow Resources:', slowResources);
+      }
+    }
+  }
+
+  // 開発環境でのパフォーマンス監視
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    window.addEventListener('load', debugPerformance);
+  }
+
 });

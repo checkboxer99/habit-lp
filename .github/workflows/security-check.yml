@@ -1,0 +1,27 @@
+# .github/workflows/security-check.yml
+name: Security Check
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Run security scan
+      run: |
+        # HTMLファイルの基本的なセキュリティチェック
+        echo "Checking for potential security issues..."
+        
+        # 外部リンクのrel属性チェック
+        grep -r "target=\"_blank\"" . --include="*.html" | grep -v "noopener\|noreferrer" && echo "Warning: External links without noopener/noreferrer found" || echo "External links security: OK"
+        
+        # インラインスクリプトのチェック
+        grep -r "javascript:" . --include="*.html" && echo "Warning: Inline JavaScript found" || echo "Inline JavaScript: OK"
+        
+        # 機密情報の漏洩チェック
+        grep -r -i "password\|secret\|key\|token" . --include="*.html" --include="*.js" --include="*.css" | grep -v "placeholder\|example\|dummy" && echo "Warning: Potential sensitive data found" || echo "Sensitive data check: OK"

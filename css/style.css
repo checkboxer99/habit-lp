@@ -457,6 +457,18 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.faq-question:hover {
+  background: #edf2f7;
+}
+
+.faq-question i {
+  transition: transform 0.3s ease;
 }
 
 .faq-answer {
