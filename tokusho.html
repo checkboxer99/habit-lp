@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>特定商取引法に基づく表記 | ケーサポ</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+      line-height: 1.7;
+      color: #2d3748;
+      background-color: #f7fafc;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .content {
+      background: white;
+      margin: 2rem auto 3rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .intro-section {
+      background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+      padding: 2rem;
+      text-align: center;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .intro-section h2 {
+      color: #2d3748;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .intro-section p {
+      color: #4a5568;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .tokusho-content {
+      padding: 2rem;
+    }
+
+    .tokusho-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .tokusho-table th,
+    .tokusho-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .tokusho-table th {
+      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+      font-weight: 600;
+      color: #2d3748;
+      width: 30%;
+      vertical-align: top;
+    }
+
+    .tokusho-table td {
+      background: white;
+      color: #4a5568;
+    }
+
+    .tokusho-table tr:last-child th,
+    .tokusho-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #fff2cd 0%, #fff2cd 100%);
+      padding: 1rem;
+      border-left: 4px solid #f6ad55;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+
+    .important {
+      background: linear-gradient(120deg, #fed7d7 0%, #fed7d7 100%);
+      padding: 1rem;
+      border-left: 4px solid #fc8181;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+
+    .contact-section {
+      background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .contact-section h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-button {
+      background: white;
+      color: #38a169;
+      padding: 0.8rem 2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .back-link {
+      text-align: center;
+      padding: 1rem 0 2rem;
+    }
+
+    .back-link a {
+      color: #38a169;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .back-link a:hover {
+      color: #2f855a;
+    }
+
+    .last-updated {
+      text-align: center;
+      color: #718096;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .container {
+        padding: 0 0.5rem;
+      }
+      
+      .content {
+        margin: 1rem auto 2rem;
+      }
+      
+      .intro-section,
+      .tokusho-content,
+      .contact-section {
+        padding: 1.5rem;
+      }
+      
+      .tokusho-table {
+        font-size: 0.9rem;
+      }
+      
+      .tokusho-table th,
+      .tokusho-table td {
+        padding: 0.8rem;
+      }
+      
+      .tokusho-table th {
+        width: 35%;
+      }
+
+      .contact-info {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .contact-item {
+        justify-content: center;
+      }
+    }
+
+    /* アニメーション */
+    .tokusho-table {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <h1>特定商取引法に基づく表記</h1>
+      <p>ケーサポのサービスに関する法定表示事項</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="content">
+      <div class="intro-section">
+        <h2>安心してご利用いただくために</h2>
+        <p>特定商取引法に基づき、当サービスの販売条件等について明記いたします。ご不明な点がございましたら、お気軽にお問い合わせください。</p>
+      </div>
+
+      <div class="tokusho-content">
+        <div class="last-updated">
+          <i class="fas fa-calendar-alt"></i> 最終更新日：2025年8月14日
+        </div>
+
+        <table class="tokusho-table">
+          <tr>
+            <th>事業者名</th>
+            <td>ケーサポ</td>
+          </tr>
+          <tr>
+            <th>運営責任者</th>
+            <td>松本 夏樹</td>
+          </tr>
+          <tr>
+            <th>所在地</th>
+            <td>愛知県碧南市</td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td>080-2510-3626<br>
+            <span style="font-size: 0.9rem; color: #718096;">（受付時間：平日(月-金) 18:30-23:00　土日 09:00-23:00）</span></td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td>お問い合わせはLINEまたは電話にて承ります</td>
+          </tr>
+          <tr>
+            <th>サービス内容</th>
+            <td>習慣化サポートサービス<br>
+            ・LINEによる日常サポート<br>
+            ・電話・ビデオ通話による相談<br>
+            ・個別習慣化プランの作成・管理</td>
+          </tr>
+          <tr>
+            <th>販売価格</th>
+            <td>
+              <strong>ライトプラン：3,980円/月（税込）</strong><br>
+              <strong>スタンダードプラン：9,800円/月（税込）</strong><br>
+              <strong>プレミアムプラン：19,800円/月（税込）</strong><br>
+              ※表示価格はすべて税込価格です
+            </td>
+          </tr>
+          <tr>
+            <th>付帯費用</th>
+            <td>
+              ・銀行振込手数料：お客様負担<br>
+              ・通信料（LINE、電話等）：お客様負担<br>
+              ・その他、サービス利用に伴う通信費等：お客様負担
+            </td>
+          </tr>
+          <tr>
+            <th>支払方法</th>
+            <td>
+              ・銀行振込<br>
+              ・PayPal<br>
+              ・Stripe（クレジットカード決済）
+            </td>
+          </tr>
+          <tr>
+            <th>支払時期</th>
+            <td>
+              <strong>初回：</strong>お申込み確認後に即時課金<br>
+              <strong>次回以降：</strong>サービス開始日と同じ日付に毎月自動課金<br>
+              <span style="font-size: 0.9rem; color: #718096;">（例：8/14開始の場合、9/14に次回課金）</span>
+            </td>
+          </tr>
+          <tr>
+            <th>サービス提供時期</th>
+            <td>
+              初回支払い確認後、同日または翌日からサービス開始<br>
+              ※サービス期間は開始日基準で1ヶ月間の提供
+            </td>
+          </tr>
+          <tr>
+            <th>返品・解約について</th>
+            <td>
+              <div class="important">
+                <strong>重要事項：</strong><br>
+                ・サービスの性質上、返品はお受けできません<br>
+                ・一度お支払いいただいた料金は、いかなる理由があっても返金いたしません<br>
+                ・解約をご希望の場合は、次回更新日の7日前までにご連絡ください<br>
+                ・解約後の返金は一切行いません
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th>免責事項</th>
+            <td>
+              ・当サービスは習慣化の支援を目的としており、効果を保証するものではありません<br>
+              ・お客様の個人的な事情による利用停止・中断については、返金対応いたしません<br>
+              ・通信障害等によるサービス中断については、可能な範囲で代替手段を提供します
+            </td>
+          </tr>
+          <tr>
+            <th>個人情報の取扱い</th>
+            <td>
+              取得した個人情報は、プライバシーポリシーに基づき適切に管理し、<br>
+              サービス提供以外の目的では使用いたしません
+            </td>
+          </tr>
+          <tr>
+            <th>未成年者の利用</th>
+            <td>
+              <div class="highlight">
+                18歳未満の方がご利用される場合は、<br>
+                事前に親権者の同意を得てからお申し込みください
+              </div>
+            </td>
+          </tr>
+        </table>
+
+        <div class="important">
+          <h4><i class="fas fa-exclamation-triangle"></i> 契約前の重要確認事項</h4>
+          <p>本サービスは継続課金型（サブスクリプション）サービスです。お申し込み前に以下の点を必ずご確認ください：</p>
+          <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+            <li>毎月自動的に課金が継続されます</li>
+            <li>解約は次回更新日の7日前までに手続きが必要です</li>
+            <li>一度お支払いいただいた料金の返金は一切行いません</li>
+            <li>効果の保証はありません</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="contact-section">
+        <h3>お問い合わせ・ご質問</h3>
+        <p>特定商取引法に関するご質問やサービスについてのお問い合わせは、以下の方法でご連絡ください。</p>
+        
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>080-2510-3626</span>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-line"></i>
+            <span>LINEでのお問い合わせ</span>
+          </div>
+        </div>
+        
+        <a href="https://lin.ee/YLMuQKg" target="_blank" rel="noopener noreferrer" class="contact-button">
+          <i class="fab fa-line"></i>
+          LINEで問い合わせる
+        </a>
+      </div>
+    </div>
+
+    <div class="back-link">
+      <a href="index.html">
+        <i class="fas fa-arrow-left"></i>
+        トップページに戻る
+      </a>
+    </div>
+  </div>
+</body>
+</html>
