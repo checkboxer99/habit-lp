@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // CTAボタンのクリック追跡（アナリティクス用）
+// CTAボタンのクリック追跡（アナリティクス用）
   document.querySelectorAll('.cta-button, .plan-button').forEach(button => {
     button.addEventListener('click', function(e) {
       // Google Analytics 4 イベント送信
@@ -174,6 +174,56 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }
     });
+  });
+
+  // 訪問サポートカードのホバーエフェクト向上
+  document.querySelectorAll('.visit-plan-card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      // 他のカードを少し薄くする
+      document.querySelectorAll('.visit-plan-card').forEach(otherCard => {
+        if (otherCard !== this) {
+          otherCard.style.opacity = '0.7';
+        }
+      });
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      // 全てのカードの透明度を戻す
+      document.querySelectorAll('.visit-plan-card').forEach(otherCard => {
+        otherCard.style.opacity = '1';
+      });
+    });
+  });
+
+  // 訪問サポートの追加オプションカードのアニメーション
+  if ('IntersectionObserver' in window) {
+    const visitObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+          // カードを順番にアニメーション
+          const cards = entry.target.querySelectorAll('.visit-option-card, .visit-example-item');
+          cards.forEach((card, index) => {
+            setTimeout(() => {
+              card.style.transform = 'translateY(0)';
+              card.style.opacity = '1';
+            }, index * 100);
+          });
+        }
+      });
+    }, { threshold: 0.1 });
+
+    // 訪問サポート関連要素を監視
+    document.querySelectorAll('.visit-additional-options, .visit-examples').forEach(el => {
+      visitObserver.observe(el);
+    });
+  }
+
+  // 初期設定：アニメーション用の準備
+  document.querySelectorAll('.visit-option-card, .visit-example-item').forEach(item => {
+    item.style.transform = 'translateY(20px)';
+    item.style.opacity = '0';
+    item.style.transition = 'all 0.5s ease';
   });
 
   // フォーム送信の追跡

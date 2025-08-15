@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- 基本的なSEOメタタグ -->
+  <title>ケーサポ | 習慣が続く、人が支える - 愛知県碧南市の習慣化サポートサービス</title>
+  <meta name="description" content="愛知県碧南市を中心に活動中。勉強・ダイエット・資格取得が続かない方へ。専属サポーターがLINE・電話・訪問で習慣化をサポート。科学的メソッドとオーダーメイド設計で3日坊主を卒業しませんか？">
+  <meta name="keywords" content="習慣化,三日坊主,ダイエット,勉強,資格取得,サポート,継続,モチベーション,習慣,やる気">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ke-sapo.com/">
+  <meta property="og:title" content="ケーサポ | 習慣が続く、人が支える">
+  <meta property="og:description" content="専属サポーターが習慣化をサポート。勉強・ダイエット・資格取得が続かない方のための習慣化サービス。">
+  <meta property="og:image" content="https://ke-sapo.com/images/og-image.jpg">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="ケーサポ">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://ke-sapo.com/">
+  <meta property="twitter:title" content="ケーサポ | 習慣が続く、人が支える">
+  <meta property="twitter:description" content="専属サポーターが習慣化をサポート。勉強・ダイエット・資格取得が続かない方のための習慣化サービス。">
+  <meta property="twitter:image" content="https://ke-sapo.com/images/og-image.jpg">
+  
+  <!-- その他のメタタグ -->
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="ケーサポ">
+  <meta name="theme-color" content="#667eea">
+  <link rel="canonical" href="https://ke-sapo.com/">
+  
+  <!-- PWA対応 -->
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  <!-- Preload重要リソース -->
+  <link rel="preload" href="css/style.css" as="style">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+  
+  <!-- DNS prefetch -->
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="//lin.ee">
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  
+  <!-- 構造化データ (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ケーサポ",
+    "alternateName": "Kesapo",
+    "description": "習慣化をサポートする専門サービス",
+    "url": "https://kesapo.com",
+    "logo": "https://ke-sapo.com/images/logo.png",
+    "foundingDate": "2024",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "080-2510-3626",
+      "contactType": "customer support",
+      "availableLanguage": ["Japanese"]
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "JP",
+      "addressLocality": "愛知県碧南市"
+    },
+    "sameAs": [
+      "https://line.me/ti/p/YLMuQKg"
+    ]
+  }
+  </script>
+  
+  <!-- サービス情報の構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "習慣化サポートサービス",
+    "description": "専属サポーターによる習慣化支援サービス。勉強、ダイエット、資格取得などの継続をサポート。",
+    "provider": {
+      "@type": "Organization",
+      "name": "ケーサポ"
+    },
+    "serviceType": "習慣化サポート",
+    "areaServed": "日本",
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceType": "LINE, 電話, 訪問"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "ライトプラン",
+        "price": "3980",
+        "priceCurrency": "JPY",
+        "description": "習慣化の第一歩を始めたい方におすすめ"
+      },
+      {
+        "@type": "Offer",
+        "name": "スタンダードプラン",
+        "price": "9800",
+        "priceCurrency": "JPY",
+        "description": "確実に習慣化したい方向けの定番プラン"
+      },
+      {
+        "@type": "Offer",
+        "name": "プレミアムプラン",
+        "price": "19800",
+        "priceCurrency": "JPY",
+        "description": "専属サポートで確実に人生を変えたい方"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- FAQ構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "対象はどんな人ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "18歳以上の成人の方で、習慣化に悩む方が対象です。学習習慣、運動習慣、生活習慣など、どんな分野でもサポートいたします。未成年の方は親権者の同意が必要です。"
+        }
+      },
+      {
+        "@type": "Question", 
+        "name": "無料相談は本当に無料ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい、LINE登録後の初回ヒアリングは完全無料で行っています。あなたの現状と目標をお聞きし、最適なサポートプランをご提案します。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "本当に習慣が身につくんですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "科学的根拠に基づいた習慣化メソッドと、専属サポーターによる個別対応で、習慣化をサポートします。ただし、習慣の定着には個人差があり、効果を保証するものではありません。"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- ナビゲーションバー -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="メインナビゲーション">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">ケーサポ</a>
+      <ul class="nav-menu">
+        <li><a href="#about">サービス概要</a></li>
+        <li><a href="#features">特徴</a></li>
+        <li><a href="#pricing">料金</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+      <button class="mobile-menu-btn" aria-label="モバイルメニューを開く">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ヒーローセクション -->
+  <section class="hero" role="banner">
+    <div class="hero-content">
+      <h1>続けたい気持ちに、<br>人の力を。</h1>
+      <p>あなたの"やりたい"を、私たちが一緒に習慣に変えます。</p>
+      <a href="https://lin.ee/YLMuQKg" target="_blank" rel="noopener noreferrer" class="cta-button">
+        <i class="fab fa-line"></i>
+        LINEで無料相談する
+      </a>
+    </div>
+  </section>
+
+  <!-- 問題提起セクション -->
+  <section id="about" class="problem-section">
+    <h2>三日坊主で終わってしまう、<br>そんなあなたへ</h2>
+    <div class="problem-text">
+      <p>勉強、ダイエット、資格取得…。<br>やる気はあるのに続かないのは、あなただけのせいじゃありません。</p>
+      <p style="margin-top: 1.5rem; font-weight: 600; color: #2d3748;">私たちは、"人の力"で習慣を変えるサポートサービスです。</p>
+    </div>
+  </section>
+
+  <!-- 解決策セクション -->
+  <section class="solution-section">
+    <h2 style="font-size: clamp(2rem, 4vw, 3rem); color: #2d3748; margin-bottom: 2rem; text-align: center;">続ける仕組み、支える人</h2>
+    
+    <div class="solution-visual">
+      <div class="solution-icon" role="img" aria-label="スマートフォンアプリ">
+        <i class="fas fa-mobile-alt"></i>
+      </div>
+      <div class="arrow" role="img" aria-label="矢印">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+      <div class="solution-icon" role="img" aria-label="電話サポート">
+        <i class="fas fa-phone"></i>
+      </div>
+      <div class="arrow" role="img" aria-label="矢印">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+      <div class="solution-icon" role="img" aria-label="訪問サポート">
+        <i class="fas fa-home"></i>
+      </div>
+    </div>
+    
+    <p style="font-size: 1.2rem; color: #4a5568; max-width: 600px; margin: 0 auto; line-height: 1.8;">
+      アプリ・電話・訪問によるリアルなサポート体制で、<br>
+      あなた専属のサポーターが、継続できる環境を提供します。
+    </p>
+  </section>
+
+  <!-- 特徴セクション -->
+  <section id="features" class="features-section">
+    <h2 style="text-align: center; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem;">サービスの特徴</h2>
+    <div class="features-grid">
+      <article class="feature-card">
+        <div class="feature-icon" role="img" aria-label="オーダーメイド設計">
+          <i class="fas fa-user-cog"></i>
+        </div>
+        <h3>オーダーメイド設計</h3>
+        <p>生活スタイルや性格に合わせた完全カスタム支援。あなただけの継続プランを作成します。</p>
+      </article>
+      
+      <article class="feature-card">
+        <div class="feature-icon" role="img" aria-label="やる気不要の仕組み">
+          <i class="fas fa-cogs"></i>
+        </div>
+        <h3>やる気不要の仕組み</h3>
+        <p>続けられるのは、習慣化のシステムがあるから。科学的根拠に基づいた継続メソッド。</p>
+      </article>
+      
+      <article class="feature-card">
+        <div class="feature-icon" role="img" aria-label="人によるサポート">
+          <i class="fas fa-hands-helping"></i>
+        </div>
+        <h3>人によるサポート</h3>
+        <p>毎日の声かけ、相談、寄り添い。人間だからこその安心感とモチベーション維持。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 料金プラン -->
+  <section id="pricing" class="pricing-section">
+    <h2 style="text-align: center; font-size: clamp(2rem, 4vw, 3rem); color: #2d3748; margin-bottom: 1rem;">料金プラン</h2>
+    <p style="text-align: center; color: #4a5568; margin-bottom: 3rem; font-size: 1.1rem;">あなたに最適なプランをお選びください</p>
+    
+    <div class="pricing-grid">
+      <!-- ライトプラン -->
+      <article class="pricing-card basic">
+        <div class="plan-header">
+          <h3>ライトプラン</h3>
+          <div class="price">
+            <span class="currency">¥</span>
+            <span class="amount">3,980</span>
+            <span class="period">/月</span>
+          </div>
+          <p class="plan-description">習慣化の第一歩を始めたい方におすすめ</p>
+          <div class="tax-note">（税込価格）</div>
+        </div>
+        <ul class="features-list">
+          <li><i class="fas fa-check" aria-hidden="true"></i>毎日の定型LINEサポート</li>
+          <li><i class="fas fa-check" aria-hidden="true"></i>週1回の簡易返信（5分以内）</li>
+          <li><i class="fas fa-check" aria-hidden="true"></i>月1回のフォームレビュー</li>
+          <li><i class="fas fa-check" aria-hidden="true"></i>基本的な習慣記録管理</li>
+        </ul>
+        <a href="#contact" class="plan-button">まずは無料面談</a>
+      </article>
+      
+      <!-- スタンダードプラン -->
+      <article class="pricing-card premium popular">
+        <div class="popular-badge">人気No.1</div>
+        <div class="plan-header">
+          <h3>スタンダードプラン</h3>
+          <div class="price">
+            <span class="currency">¥</span>
+            <span class="amount">9,800</span>
+            <span class="period">/月</span>
+          </div>
+          <p class="plan-description">確実に習慣化したい方向けの定番プラン</p>
+          <div class="tax-note">（税込価格）</div>
+        </div>
+        <ul class="features-list">
+          <li><i class="fas fa-check" aria-hidden="true"></i>毎日のLINE（1日2回まで返信）</li>
+          <li><i class="fas fa-check" aria-hidden="true"></i>週1回のZoom・電話（20分）</li>
+          <li><i class="fas fa-check" aria-hidden="true"></i>習慣記録の詳細フィードバック</li>
+          <li><i class="fas fa-check" aria-hidden="true"></i>月1回の改善提案サポート</li>
+          <li><i class="fas fa-check" aria-hidden="true"></i>個別カスタム習慣プラン</li>
+        </ul>
+        <a href="#contact" class="plan-button">まずは無料面談</a>
+      </article>
+      
+      <!-- プレミアムプラン -->
+      <article class="pricing-card vip">
+        <div class="plan-header">
+          <h3>プレミアムプラン</h3>
+          <div class="price">
+            <span class="currency">¥</span>
+            <span class="amount">19,800</span>
+            <span class="period">/月</span>
+          </div>
+          <p class="plan-description">専属サポートで確実に人生を変えたい方</p>
+          <div class="tax-note">（税込価格）</div>
+        </div>
+        <ul class="features-list">
+          <li><i class="fas fa-check" aria-hidden="true"></i>毎日の個別LINE（8〜20時対応）</li>
+          <li><i class="fas fa-check" aria-hidden="true"></i>週2回のZoom・電話（15分）</li>
+          <li><i class="fas fa-check" aria-hidden="true"></i>月1回の目標再設定セッション</li>
+          <li><i class="fas fa-check" aria-hidden="true"></i>月1回の詳細改善提案レポート</li>
+          <li><i class="fas fa-check" aria-hidden="true"></i>緊急時モチベーション支援</li>
+          <li><i class="fas fa-check" aria-hidden="true"></i>専属サポーターによる完全個別対応</li>
+        </ul>
+        <a href="#contact" class="plan-button">まずは無料面談</a>
+      </article>
+    </div>
+    
+    <div class="pricing-note">
+      <p><i class="fas fa-info-circle" aria-hidden="true"></i> 支払方法：銀行振込・PayPal・Stripe / 振込手数料・通信料等はご利用者様負担</p>
+      <p><i class="fas fa-calendar-alt" aria-hidden="true"></i> 課金システム：初回は申込時即時課金、次回以降は開始日と同じ日付に毎月自動課金（例：8/14開始→9/14課金）</p>
+    </div>
+  </section>
+  <!-- 訪問サポート料金 -->
+  <section id="visit-pricing" class="visit-pricing-section">
+    <h2 style="text-align: center; font-size: clamp(2rem, 4vw, 3rem); color: #2d3748; margin-bottom: 1rem;">訪問サポート料金</h2>
+    <p style="text-align: center; color: #4a5568; margin-bottom: 0.5rem; font-size: 1.1rem;">愛知県碧南市限定のオプションサービス</p>
+    <p style="text-align: center; color: #e53e3e; margin-bottom: 3rem; font-size: 1rem; font-weight: 600;">※ 訪問サポートは碧南市内のみ対応</p>
+    
+    <div class="visit-pricing-container">
+      <div class="visit-info-card">
+        <div class="visit-info-header">
+          <h3><i class="fas fa-clock" aria-hidden="true"></i> サービス対応時間</h3>
+        </div>
+        <div class="visit-info-content">
+          <p><strong>平日（月〜金）：</strong>18:00〜23:00</p>
+          <p><strong>土日：</strong>9:00〜23:00</p>
+          <p style="margin-top: 1rem; font-size: 0.9rem; color: #4a5568;">
+            <i class="fas fa-info-circle" aria-hidden="true"></i> 
+            営業時間外は事前予約制（+1,000円）
+          </p>
+        </div>
+      </div>
+
+      <div class="visit-pricing-table">
+        <article class="visit-plan-card">
+          <div class="visit-plan-header">
+            <h3>単発訪問サポート</h3>
+            <div class="visit-price">
+              <span class="visit-currency">¥</span>
+              <span class="visit-amount">4,000</span>
+              <span class="visit-period">/60分</span>
+            </div>
+            <div class="visit-tax-note">（税込価格・移動費込み）</div>
+          </div>
+          <ul class="visit-features-list">
+            <li><i class="fas fa-check" aria-hidden="true"></i>ご自宅や指定場所での習慣実践サポート</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i>対面での面談・相談</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i>環境整備のお手伝い</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i>碧南市内一律料金</li>
+          </ul>
+        </article>
+
+        <article class="visit-plan-card discount">
+          <div class="discount-badge">お得</div>
+          <div class="visit-plan-header">
+            <h3>既存プラン利用者割引</h3>
+            <div class="visit-price">
+              <span class="visit-currency">¥</span>
+              <span class="visit-amount">3,000</span>
+              <span class="visit-period">/60分</span>
+            </div>
+            <div class="visit-tax-note">（定期プラン契約中限定）</div>
+          </div>
+          <ul class="visit-features-list">
+            <li><i class="fas fa-check" aria-hidden="true"></i>上記サービス内容と同じ</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i>1,000円割引でご利用可能</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i>定期プランとの併用でより効果的</li>
+          </ul>
+        </article>
+
+        <article class="visit-plan-card popular">
+          <div class="popular-badge">まとめ買い</div>
+          <div class="visit-plan-header">
+            <h3>3回チケット</h3>
+            <div class="visit-price">
+              <span class="visit-currency">¥</span>
+              <span class="visit-amount">10,500</span>
+              <span class="visit-period">/3回分</span>
+            </div>
+            <div class="visit-price-per">
+              1回あたり <span style="color: #48bb78; font-weight: 600;">¥3,500</span>
+            </div>
+            <div class="visit-tax-note">（有効期限3ヶ月）</div>
+          </div>
+          <ul class="visit-features-list">
+            <li><i class="fas fa-check" aria-hidden="true"></i>単発訪問3回分のセット</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i>1回あたり500円お得</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i>計画的な習慣化サポート</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i>有効期限内で自由にスケジュール</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="visit-additional-options">
+        <h3 style="text-align: center; margin-bottom: 1.5rem; color: #2d3748;">追加オプション</h3>
+        <div class="visit-options-grid">
+          <div class="visit-option-card">
+            <h4><i class="fas fa-clock" aria-hidden="true"></i> 延長料金</h4>
+            <p class="option-price">+¥1,500 <span>/30分</span></p>
+            <p class="option-desc">訪問時の時間延長（当日対応可）</p>
+          </div>
+          <div class="visit-option-card">
+            <h4><i class="fas fa-moon" aria-hidden="true"></i> 時間外対応</h4>
+            <p class="option-price">+¥1,000</p>
+            <p class="option-desc">23:00〜翌9:00の時間外訪問（※事前相談をお願いします）</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="visit-examples">
+        <h3 style="text-align: center; margin-bottom: 1.5rem; color: #2d3748;">対応例</h3>
+        <div class="visit-examples-grid">
+          <div class="visit-example-item">
+            <i class="fas fa-running" aria-hidden="true"></i>
+            <span>習慣の実践サポート（運動・勉強・家事など）</span>
+          </div>
+          <div class="visit-example-item">
+            <i class="fas fa-chart-line" aria-hidden="true"></i>
+            <span>進捗確認と改善提案</span>
+          </div>
+          <div class="visit-example-item">
+            <i class="fas fa-tools" aria-hidden="true"></i>
+            <span>作業・環境整備の手伝い</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq-section">
+    <h2 style="text-align: center; font-size: clamp(2rem, 4vw, 3rem); color: #2d3748; margin-bottom: 3rem;">よくある質問</h2>
+    
+    <article class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Q. 対象はどんな人ですか？</span>
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+      </button>
+      <div class="faq-answer">
+        A. 18歳以上の成人の方で、習慣化に悩む方が対象です。学習習慣、運動習慣、生活習慣など、どんな分野でもサポートいたします。勉強、ダイエット、読書、早起き、筋トレ、資格勉強など、様々な習慣化をお手伝いします。未成年の方は親権者の同意が必要です。
+      </div>
+    </article>
+    
+    <article class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Q. 無料相談は本当に無料ですか？</span>
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+      </button>
+      <div class="faq-answer">
+        A. はい、LINE登録後の初回ヒアリングは完全無料で行っています。あなたの現状と目標をお聞きし、最適なサポートプランをご提案します。無理な勧誘は一切ございませんので、お気軽にご相談ください。
+      </div>
+    </article>
+    
+    <article class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Q. サポート期間はどのくらいですか？</span>
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+      </button>
+      <div class="faq-answer">
+        A. 習慣の定着には個人差がありますが、通常3ヶ月〜6ヶ月のプランをご用意しています。短期集中プラン（1ヶ月）から長期サポート（12ヶ月）まで、あなたの目標に合わせて選択可能です。
+      </div>
+    </article>
+    
+    <article class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Q. 本当に習慣が身につくんですか？</span>
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+      </button>
+      <div class="faq-answer">
+        A. 科学的根拠に基づいた習慣化メソッドと、専属サポーターによる個別対応で、習慣化をサポートします。一人ひとりに合わせたオーダーメイドプランで、無理なく続けられる仕組みを作ります。ただし、習慣の定着には個人差があり、効果を保証するものではありません。
+      </div>
+    </article>
+    
+    <article class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Q. 料金はいつ支払いますか？</span>
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+      </button>
+      <div class="faq-answer">
+        A. 月額制で、お申込確認後、毎月1日に翌月分をお支払いいただきます。銀行振込、PayPal、Stripeに対応しています。振込手数料等はご利用者様のご負担となります。
+      </div>
+    </article>
+    
+    <article class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Q. 解約・返金はできますか？</span>
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+      </button>
+      <div class="faq-answer">
+        A. 解約は次回更新日の7日前までにご連絡ください。なお、一度お支払いいただいた料金は、いかなる理由があっても返金いたしかねます。予めご了承ください。
+      </div>
+    </article>
+    
+    <article class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Q. どんなサポーターが担当しますか？</span>
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+      </button>
+      <div class="faq-answer">
+        A. 心理学、コーチング、教育学などの専門知識を持つ認定サポーターが担当します。あなたの年齢、性格、目標に合わせて最適なサポーターをマッチングいたします。相性が合わない場合は、サポーター変更も可能です。
+      </div>
+    </article>
+  </section>
+
+  <!-- 最終CTA -->
+  <section id="contact" class="final-cta">
+    <div class="final-cta-content">
+      <h2>あなた専属のサポーターと、<br>今日から始めませんか？</h2>
+      <p>LINE登録で無料相談がすぐにできます。</p>
+      <a href="https://lin.ee/YLMuQKg" target="_blank" rel="noopener noreferrer" class="cta-button pulse-button" style="background: white; color: #38a169; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+        <i class="fab fa-line" aria-hidden="true"></i>
+        LINEで無料相談する
+      </a>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-company">
+        <h4>ケーサポ</h4>
+        <p>習慣が続く、人が支える</p><br>
+        <p>平日（月-金）：18:30-23:00 </p>
+        <p>土日 9:00-18:00</p>
+      </div>
+      
+      <div class="footer-links">
+        <a href="terms.html">利用規約</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSctHxKKwYQsBIzQXmFYfYc07_o9s2jb3pPXmHaXSVjHWRqW6w/viewform?usp=header">お問い合わせ</a>
+        <a href="tokusho.html">特定商取引法に基づく表記</a>
+      </div>
+      
+      <div class="footer-divider"></div>
+      
+      <div class="footer-copyright">
+        <p>&copy; 2025 ケーサポ. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -429,6 +429,252 @@ body {
   margin-right: 0.5rem;
 }
 
+/* 訪問サポート料金 */
+.visit-pricing-section {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+}
+
+.visit-pricing-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.visit-info-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 2px solid #48bb78;
+}
+
+.visit-info-header {
+  margin-bottom: 1.5rem;
+}
+
+.visit-info-header h3 {
+  color: #2d3748;
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.visit-info-header i {
+  color: #48bb78;
+}
+
+.visit-info-content p {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  color: #4a5568;
+}
+
+.visit-pricing-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.visit-plan-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.visit-plan-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.visit-plan-card.popular {
+  border-color: #48bb78;
+  transform: scale(1.02);
+}
+
+.visit-plan-card.discount {
+  border-color: #e53e3e;
+}
+
+.discount-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #e53e3e, #c53030);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.visit-plan-header h3 {
+  font-size: 1.5rem;
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.visit-price {
+  margin: 1.5rem 0;
+}
+
+.visit-currency {
+  font-size: 1.1rem;
+  color: #4a5568;
+}
+
+.visit-amount {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #2d3748;
+}
+
+.visit-period {
+  font-size: 1rem;
+  color: #4a5568;
+}
+
+.visit-price-per {
+  font-size: 1rem;
+  color: #4a5568;
+  margin-top: 0.5rem;
+}
+
+.visit-tax-note {
+  color: #718096;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.visit-features-list {
+  list-style: none;
+  text-align: left;
+  margin: 2rem 0;
+}
+
+.visit-features-list li {
+  padding: 0.5rem 0;
+  color: #4a5568;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.visit-features-list i {
+  color: #48bb78;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.visit-additional-options {
+  background: white;
+  border-radius: 15px;
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.visit-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.visit-option-card {
+  background: #f7fafc;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.visit-option-card:hover {
+  background: #edf2f7;
+  transform: translateY(-3px);
+}
+
+.visit-option-card h4 {
+  color: #2d3748;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.visit-option-card i {
+  color: #667eea;
+}
+
+.option-price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.option-price span {
+  font-size: 1rem;
+  color: #4a5568;
+  font-weight: 400;
+}
+
+.option-desc {
+  color: #4a5568;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.visit-examples {
+  background: white;
+  border-radius: 15px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.visit-examples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.visit-example-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f7fafc;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #4a5568;
+  transition: all 0.3s ease;
+}
+
+.visit-example-item:hover {
+  background: #edf2f7;
+  transform: translateX(5px);
+}
+
+.visit-example-item i {
+  color: #48bb78;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
 /* FAQ */
 .faq-section {
   padding: 5rem 2rem;
