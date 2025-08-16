@@ -130,6 +130,39 @@
       margin: 1rem 0;
     }
 
+    .subscription-notice {
+      background: linear-gradient(120deg, #e6fffa 0%, #b2f5ea 100%);
+      padding: 1.5rem;
+      border-left: 4px solid #38a169;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+
+    .subscription-notice h4 {
+      color: #2d3748;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .subscription-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .subscription-item {
+      background: white;
+      padding: 1rem;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .subscription-item h5 {
+      color: #2d3748;
+      margin-bottom: 0.5rem;
+    }
+
     .contact-section {
       background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
       color: white;
@@ -244,6 +277,10 @@
       .contact-item {
         justify-content: center;
       }
+
+      .subscription-details {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* アニメーション */
@@ -278,7 +315,7 @@
 
       <div class="tokusho-content">
         <div class="last-updated">
-          <i class="fas fa-calendar-alt"></i> 最終更新日：2025年8月14日
+          <i class="fas fa-calendar-alt"></i> 最終更新日：2025年8月16日
         </div>
 
         <table class="tokusho-table">
@@ -301,7 +338,8 @@
           </tr>
           <tr>
             <th>メールアドレス</th>
-            <td>お問い合わせはLINEまたは電話にて承ります</td>
+            <td><strong>ksapo.info@gmail.com</strong><br>
+            <span style="font-size: 0.9rem; color: #718096;">※お急ぎの場合はLINEまたは電話でのお問い合わせをお勧めします</span></td>
           </tr>
           <tr>
             <th>サービス内容</th>
@@ -356,14 +394,16 @@
             </td>
           </tr>
           <tr>
-            <th>返品・解約について</th>
+            <th>返品・交換について</th>
             <td>
+              本サービスは役務提供型（継続支援サービス）のため、商品の引き渡しや不良品は発生しません。<br>
+              サービスの性質上、提供開始後の返金には応じかねます。<br>
+              ただし、運営側の重大な事由によりサービスが提供できない場合は、個別に協議のうえ対応いたします。<br><br>
               <div class="important">
-                <strong>重要事項：</strong><br>
-                ・サービスの性質上、返品はお受けできません<br>
-                ・一度お支払いいただいた料金は、いかなる理由があっても返金いたしません<br>
+                <strong>解約について：</strong><br>
                 ・解約をご希望の場合は、次回更新日の7日前までにご連絡ください<br>
-                ・解約後の返金は一切行いません
+                ・解約後の返金は一切行いません<br>
+                ・一度お支払いいただいた料金は、いかなる理由があっても返金いたしません
               </div>
             </td>
           </tr>
@@ -393,15 +433,50 @@
           </tr>
         </table>
 
-        <div class="important">
-          <h4><i class="fas fa-exclamation-triangle"></i> 契約前の重要確認事項</h4>
-          <p>本サービスは継続課金型（サブスクリプション）サービスです。お申し込み前に以下の点を必ずご確認ください：</p>
-          <ul style="margin: 1rem 0; padding-left: 1.5rem;">
-            <li>毎月自動的に課金が継続されます</li>
-            <li>解約は次回更新日の7日前までに手続きが必要です</li>
-            <li>一度お支払いいただいた料金の返金は一切行いません</li>
-            <li>効果の保証はありません</li>
-          </ul>
+        <div class="subscription-notice">
+          <h4><i class="fas fa-sync-alt"></i> サブスクリプションサービス重要事項</h4>
+          <p>本サービスは継続課金型（サブスクリプション）サービスです。お申し込み前に以下の内容を必ずご確認ください。</p>
+          
+          <div class="subscription-details">
+            <div class="subscription-item">
+              <h5>💰 価格・料金</h5>
+              <p>各プラン月額料金（税込）<br>
+              ライト：3,980円<br>
+              スタンダード：9,800円<br>
+              プレミアム：19,800円</p>
+            </div>
+            
+            <div class="subscription-item">
+              <h5>📅 支払時期</h5>
+              <p>初回：申込み確認後即時<br>
+              以降：毎月同日に自動課金<br>
+              （例：8/14開始→毎月14日課金）</p>
+            </div>
+            
+            <div class="subscription-item">
+              <h5>🔄 自動更新</h5>
+              <p>解約手続きをされない限り<br>
+              毎月自動的に課金・更新<br>
+              継続されます</p>
+            </div>
+            
+            <div class="subscription-item">
+              <h5>❌ 解約方法</h5>
+              <p>次回更新日の7日前までに<br>
+              LINE・電話・メールで<br>
+              解約のご連絡が必要</p>
+            </div>
+          </div>
+          
+          <div class="important">
+            <p><strong>⚠️ 重要な注意事項</strong></p>
+            <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+              <li>一度お支払いいただいた料金の返金は一切行いません</li>
+              <li>効果の保証はありません</li>
+              <li>解約忘れによる課金にご注意ください</li>
+              <li>解約は次回課金日の7日前までに必ず手続きください</li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -415,8 +490,8 @@
             <span>080-2510-3626</span>
           </div>
           <div class="contact-item">
-            <i class="fab fa-line"></i>
-            <span>LINEでのお問い合わせ</span>
+            <i class="fas fa-envelope"></i>
+            <span>ksapo.info@gmail.com</span>
           </div>
         </div>
         
