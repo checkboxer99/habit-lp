@@ -153,7 +153,41 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-// CTAボタンのクリック追跡（アナリティクス用）
+  // モチベーション支援カードの特別なアニメーション
+  if ('IntersectionObserver' in window) {
+    const motivationObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const card = entry.target;
+          card.classList.add('animate-in');
+          
+          // カード内の要素を順番にアニメーション
+          const benefits = card.querySelectorAll('.motivation-benefit');
+          benefits.forEach((benefit, index) => {
+            setTimeout(() => {
+              benefit.style.opacity = '1';
+              benefit.style.transform = 'translateY(0)';
+            }, index * 150);
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+
+    // モチベーション支援カードを監視
+    const motivationCard = document.querySelector('.motivation-support-card');
+    if (motivationCard) {
+      motivationObserver.observe(motivationCard);
+      
+      // 初期設定
+      motivationCard.querySelectorAll('.motivation-benefit').forEach(benefit => {
+        benefit.style.opacity = '0';
+        benefit.style.transform = 'translateY(20px)';
+        benefit.style.transition = 'all 0.5s ease';
+      });
+    }
+  }
+
+  // CTAボタンのクリック追跡（アナリティクス用）
   document.querySelectorAll('.cta-button, .plan-button').forEach(button => {
     button.addEventListener('click', function(e) {
       // Google Analytics 4 イベント送信
@@ -192,6 +226,38 @@ document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('.visit-plan-card').forEach(otherCard => {
         otherCard.style.opacity = '1';
       });
+    });
+  });
+
+  // 緊急サポートカードの特別なエフェクト
+  const emergencyCard = document.querySelector('.emergency-support');
+  if (emergencyCard) {
+    emergencyCard.addEventListener('mouseenter', function() {
+      const icon = this.querySelector('i');
+      if (icon) {
+        icon.style.animation = 'pulse 0.5s ease-in-out 3';
+      }
+    });
+
+    // 緊急サポートカードをクリックした時の追加イベント
+    emergencyCard.addEventListener('click', function() {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'emergency_support_click', {
+          'event_category': 'engagement',
+          'event_label': 'motivation_support',
+          'value': 1
+        });
+      }
+    });
+  }
+
+  // モチベーション関連の例にホバーエフェクト
+  document.querySelectorAll('.motivation-example').forEach(example => {
+    example.addEventListener('mouseenter', function() {
+      const icon = this.querySelector('i');
+      if (icon) {
+        icon.style.animation = 'heartbeat 1s ease-in-out 2';
+      }
     });
   });
 
@@ -264,6 +330,19 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }, { passive: true });
+
+  // モチベーション支援関連のイベント追跡
+  document.querySelectorAll('.motivation-feature, .motivation-example').forEach(element => {
+    element.addEventListener('click', function() {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'motivation_feature_click', {
+          'event_category': 'engagement',
+          'event_label': 'motivation_support_interest',
+          'value': 1
+        });
+      }
+    });
+  });
 
   // ページ読み込み完了時のパフォーマンス測定
   window.addEventListener('load', function() {
@@ -403,9 +482,67 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  // モチベーション支援の特別なインタラクション
+  function initMotivationInteractions() {
+    // モチベーション支援カードのクリック時のエフェクト
+    const motivationCard = document.querySelector('.motivation-support-card');
+    if (motivationCard) {
+      motivationCard.addEventListener('click', function() {
+        // ハートビートエフェクト
+        this.style.animation = 'pulse-heart 1s ease-in-out';
+        setTimeout(() => {
+          this.style.animation = '';
+        }, 1000);
+      });
+    }
+
+    // 緊急サポート関連の要素にマウスオーバー時の説明表示
+    const emergencyElements = document.querySelectorAll('.emergency-support, .motivation-example');
+    emergencyElements.forEach(element => {
+      element.addEventListener('mouseenter', function() {
+        // ツールチップ風の効果（既存のスタイルを活用）
+        this.style.boxShadow = '0 10px 30px rgba(229, 62, 62, 0.3)';
+      });
+
+      element.addEventListener('mouseleave', function() {
+        this.style.boxShadow = '';
+      });
+    });
+  }
+
+  // 訪問サポートに関する特別なユーザーエクスペリエンス
+  function initVisitSupportUX() {
+    // 訪問サポート料金表のスクロール時のアニメーション
+    const visitCards = document.querySelectorAll('.visit-plan-card');
+    visitCards.forEach((card, index) => {
+      card.style.animationDelay = `${index * 0.1}s`;
+    });
+
+    // モチベーション特集の要素に特別なハイライト
+    const motivationFeatures = document.querySelectorAll('.motivation-feature');
+    motivationFeatures.forEach(feature => {
+      feature.addEventListener('mouseenter', function() {
+        const heartIcon = this.querySelector('i');
+        if (heartIcon) {
+          heartIcon.style.transform = 'scale(1.2)';
+          heartIcon.style.transition = 'transform 0.3s ease';
+        }
+      });
+
+      feature.addEventListener('mouseleave', function() {
+        const heartIcon = this.querySelector('i');
+        if (heartIcon) {
+          heartIcon.style.transform = 'scale(1)';
+        }
+      });
+    });
+  }
+
   // 初期化関数を実行
   lazyLoadImages();
   preloadCriticalResources();
+  initMotivationInteractions();
+  initVisitSupportUX();
 
   // リサイズ時の最適化
   let resizeTimer;
@@ -430,6 +567,34 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 250);
   }, { passive: true });
 
+  // モチベーション関連のFAQが開かれた時の特別処理
+  const motivationFAQ = Array.from(document.querySelectorAll('.faq-question')).find(
+    question => question.textContent.includes('やりたくない時')
+  );
+
+  if (motivationFAQ) {
+    motivationFAQ.addEventListener('click', function() {
+      // モチベーション関連のFAQがクリックされた時の追跡
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'motivation_faq_click', {
+          'event_category': 'engagement',
+          'event_label': 'motivation_support_faq',
+          'value': 1
+        });
+      }
+
+      // 特別なハイライト効果
+      setTimeout(() => {
+        const answer = this.parentElement.querySelector('.faq-answer');
+        if (answer && answer.style.display === 'block') {
+          answer.style.background = 'linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%)';
+          answer.style.borderLeft = '4px solid #e53e3e';
+          answer.style.padding = '1.5rem 1.5rem 1.5rem 2rem';
+        }
+      }, 300);
+    });
+  }
+
   // デバッグ用の関数（開発時のみ有効化）
   function debugPerformance() {
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
@@ -453,6 +618,64 @@ document.addEventListener('DOMContentLoaded', function() {
   // 開発環境でのパフォーマンス監視
   if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
     window.addEventListener('load', debugPerformance);
+  }
+
+  // カスタムイベント: モチベーション支援への関心度測定
+  let motivationInterestScore = 0;
+  
+  // モチベーション関連要素への操作を追跡
+  document.querySelectorAll('.motivation-support-card, .motivation-feature, .motivation-example, .emergency-support').forEach(element => {
+    element.addEventListener('mouseenter', function() {
+      motivationInterestScore++;
+    });
+
+    element.addEventListener('click', function() {
+      motivationInterestScore += 2;
+      
+      // 一定の関心度に達した時にカスタムイベント発火
+      if (motivationInterestScore >= 5) {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'high_motivation_interest', {
+            'event_category': 'engagement',
+            'event_label': 'user_interested_in_motivation_support',
+            'value': motivationInterestScore
+          });
+        }
+      }
+    });
+  });
+
+  // 訪問サポートセクションでの滞在時間測定
+  let visitSectionStartTime = null;
+  
+  if ('IntersectionObserver' in window) {
+    const visitSectionObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          visitSectionStartTime = Date.now();
+        } else if (visitSectionStartTime) {
+          const timeSpent = Date.now() - visitSectionStartTime;
+          
+          // 30秒以上閲覧した場合
+          if (timeSpent > 30000) {
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'long_visit_section_view', {
+                'event_category': 'engagement',
+                'event_label': 'extended_visit_support_interest',
+                'value': Math.round(timeSpent / 1000)
+              });
+            }
+          }
+          
+          visitSectionStartTime = null;
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const visitSection = document.getElementById('visit-pricing');
+    if (visitSection) {
+      visitSectionObserver.observe(visitSection);
+    }
   }
 
 });

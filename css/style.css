@@ -365,6 +365,12 @@ body {
   margin-bottom: 2rem;
 }
 
+.tax-note {
+  color: #718096;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
 .features-list {
   list-style: none;
   text-align: left;
@@ -438,6 +444,115 @@ body {
 .visit-pricing-container {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+/* モチベーション支援カード */
+.motivation-support-card {
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+  border: 2px solid #fc8181;
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(248, 113, 113, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.motivation-support-card::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 100px;
+  height: 100px;
+  background: rgba(252, 129, 129, 0.1);
+  border-radius: 50%;
+  animation: pulse-heart 3s ease-in-out infinite;
+}
+
+@keyframes pulse-heart {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.2); opacity: 0.1; }
+}
+
+.motivation-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.motivation-header h3 {
+  color: #c53030;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.motivation-header i {
+  color: #e53e3e;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 50%, 100% { transform: scale(1); }
+  25%, 75% { transform: scale(1.1); }
+}
+
+.motivation-main-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #2d3748;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.motivation-benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.motivation-benefit {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.motivation-benefit:hover {
+  background: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(229, 62, 62, 0.2);
+}
+
+.motivation-benefit i {
+  font-size: 1.5rem;
+  color: #e53e3e;
+  flex-shrink: 0;
+}
+
+.motivation-benefit span {
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.motivation-sub-text {
+  text-align: center;
+  font-size: 1rem;
+  color: #4a5568;
+  font-style: italic;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
 }
 
 .visit-info-card {
@@ -578,6 +693,20 @@ body {
   flex-shrink: 0;
 }
 
+/* モチベーション関連の特別スタイル */
+.motivation-feature {
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+  border-radius: 8px;
+  padding: 0.75rem !important;
+  margin: 0.5rem 0;
+  border-left: 4px solid #e53e3e;
+}
+
+.motivation-feature i {
+  color: #e53e3e !important;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
 .visit-additional-options {
   background: white;
   border-radius: 15px;
@@ -606,6 +735,17 @@ body {
   transform: translateY(-3px);
 }
 
+.visit-option-card.emergency-support {
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+  border: 2px solid #fc8181;
+}
+
+.visit-option-card.emergency-support:hover {
+  background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(248, 113, 113, 0.3);
+}
+
 .visit-option-card h4 {
   color: #2d3748;
   margin-bottom: 1rem;
@@ -620,11 +760,26 @@ body {
   color: #667eea;
 }
 
+.emergency-support h4 i {
+  color: #e53e3e;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
 .option-price {
   font-size: 1.8rem;
   font-weight: 700;
   color: #667eea;
   margin-bottom: 0.5rem;
+}
+
+.emergency-support .option-price {
+  color: #e53e3e;
 }
 
 .option-price span {
@@ -673,6 +828,21 @@ body {
   color: #48bb78;
   font-size: 1.2rem;
   flex-shrink: 0;
+}
+
+/* モチベーション関連の例 */
+.motivation-example {
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+  border-left: 4px solid #e53e3e;
+}
+
+.motivation-example:hover {
+  background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
+  transform: translateX(8px);
+}
+
+.motivation-example i {
+  color: #e53e3e !important;
 }
 
 /* FAQ */
@@ -768,10 +938,10 @@ body {
 }
 
 .pulse-button {
-  animation: pulse 2s infinite;
+  animation: pulse-cta 2s infinite;
 }
 
-@keyframes pulse {
+@keyframes pulse-cta {
   0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
   70% { box-shadow: 0 0 0 20px rgba(255, 255, 255, 0); }
   100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
@@ -1009,6 +1179,47 @@ body {
     margin-top: 2rem;
     padding: 1rem;
     font-size: 0.9rem;
+  }
+
+  .visit-pricing-section {
+    padding: 3rem 1rem;
+  }
+
+  .motivation-support-card {
+    padding: 2rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .motivation-benefits {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .motivation-benefit {
+    padding: 0.75rem;
+  }
+
+  .visit-pricing-table {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .visit-plan-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .visit-plan-card.popular {
+    transform: none;
+  }
+
+  .visit-options-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .visit-examples-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .faq-section {
