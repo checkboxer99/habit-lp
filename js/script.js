@@ -537,6 +537,20 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
+  // 既存のDOMContentLoadedイベントリスナー内に追加
+
+// 訪問サポートガイドリンクのクリック追跡
+document.querySelectorAll('a[href="visit-guide.html"]').forEach(link => {
+  link.addEventListener('click', function() {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'visit_guide_click', {
+        'event_category': 'engagement',
+        'event_label': 'visit_support_guide_access',
+        'value': 1
+      });
+    }
+  });
+});
 
   // 初期化関数を実行
   lazyLoadImages();

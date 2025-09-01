@@ -1270,3 +1270,18 @@ body {
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
 }
+
+/* 訪問サポートガイドリンク用スタイル */
+.visit-guide-link {
+  transition: all 0.3s ease;
+}
+
+.visit-guide-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(72, 187, 120, 0.2);
+}
+
+.visit-guide-link a:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(72, 187, 120, 0.4) !important;
+}

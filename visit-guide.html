@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>訪問サポート利用ガイド | ケーサポ - 愛知県碧南市の習慣化サポートサービス</title>
+  <meta name="description" content="ケーサポの訪問サポートをご利用いただく前に必ずお読みください。安全で効果的なサポートのためのご利用ガイドです。">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="ケーサポ">
+  <link rel="canonical" href="https://ke-sapo.com/visit-guide.html">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ke-sapo.com/visit-guide.html">
+  <meta property="og:title" content="訪問サポート利用ガイド | ケーサポ">
+  <meta property="og:description" content="安全で効果的な訪問サポートのためのご利用ガイド。ご予約から当日まで、必要な情報をまとめています。">
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  
+  <style>
+    .guide-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .guide-header {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      margin-bottom: 3rem;
+      border-radius: 0 0 30px 30px;
+    }
+
+    .guide-header h1 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .guide-header p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .guide-section {
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .guide-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(135deg, #48bb78, #38a169);
+    }
+
+    .guide-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #2d3748;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .section-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #48bb78, #38a169);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .guide-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .guide-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid #f1f5f9;
+      transition: background 0.3s ease;
+    }
+
+    .guide-item:last-child {
+      border-bottom: none;
+    }
+
+    .guide-item:hover {
+      background: #f8fafc;
+      border-radius: 10px;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .item-bullet {
+      width: 8px;
+      height: 8px;
+      background: #48bb78;
+      border-radius: 50%;
+      margin-top: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .item-content {
+      flex: 1;
+      line-height: 1.7;
+      color: #4a5568;
+    }
+
+    .highlight-text {
+      background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+      color: #c53030;
+      padding: 0.2rem 0.5rem;
+      border-radius: 5px;
+      font-weight: 600;
+      border: 1px solid #fca5a5;
+    }
+
+    .payment-notice {
+      background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%);
+      border: 2px solid #4299e1;
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .payment-notice h3 {
+      color: #2b6cb0;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .payment-notice p {
+      color: #2d3748;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .back-to-lp {
+      text-align: center;
+      padding: 3rem 0;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    .back-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(102, 126, 234, 0.5);
+    }
+
+    .contact-section {
+      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+      border-radius: 20px;
+      padding: 2.5rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .contact-section h3 {
+      color: #2d3748;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-section p {
+      color: #4a5568;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .contact-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #48bb78, #38a169);
+      color: white;
+      padding: 0.875rem 2rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .contact-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(72, 187, 120, 0.4);
+    }
+
+    /* モバイル対応 */
+    @media (max-width: 768px) {
+      .guide-container {
+        padding: 1rem;
+      }
+
+      .guide-header {
+        padding: 2rem 1rem 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: 0 0 20px 20px;
+      }
+
+      .guide-section {
+        padding: 2rem 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .section-title {
+        font-size: 1.3rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+
+      .section-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+      }
+
+      .guide-item {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: flex-start;
+      }
+
+      .item-bullet {
+        margin-top: 0.25rem;
+      }
+
+      .payment-notice {
+        padding: 1.5rem;
+      }
+
+      .back-to-lp {
+        padding: 2rem 0;
+      }
+
+      .contact-section {
+        padding: 2rem 1.5rem;
+      }
+    }
+
+    /* アニメーション効果 */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .guide-section {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .guide-section:nth-child(2) { animation-delay: 0.1s; }
+    .guide-section:nth-child(3) { animation-delay: 0.2s; }
+    .guide-section:nth-child(4) { animation-delay: 0.3s; }
+    .guide-section:nth-child(5) { animation-delay: 0.4s; }
+    .guide-section:nth-child(6) { animation-delay: 0.5s; }
+  </style>
+</head>
+
+<body>
+  <div class="guide-header">
+    <div class="guide-container">
+      <h1><i class="fas fa-home" style="margin-right: 0.5rem;"></i>訪問サポート利用ガイド</h1>
+      <p>安全で効果的なサポートのため、ご利用前に必ずお読みください</p>
+    </div>
+  </div>
+
+  <div class="guide-container">
+    <!-- ご利用前のお願い -->
+    <section class="guide-section">
+      <h2 class="section-title">
+        <div class="section-icon"><i class="fas fa-calendar-check"></i></div>
+        ご利用前のお願い
+      </h2>
+      <ul class="guide-list">
+        <li class="guide-item">
+          <div class="item-bullet"></div>
+          <div class="item-content">
+            ご予約いただいた日時に合わせてご準備ください
+          </div>
+        </li>
+        <li class="guide-item">
+          <div class="item-bullet"></div>
+          <div class="item-content">
+            変更・キャンセルは<span class="highlight-text">前日まで</span>にご連絡ください<br>
+            <small style="color: #718096;">（当日キャンセルは返金できませんのでご了承ください）</small>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 当日のお願い -->
+    <section class="guide-section">
+      <h2 class="section-title">
+        <div class="section-icon"><i class="fas fa-clock"></i></div>
+        当日のお願い
+      </h2>
+      <ul class="guide-list">
+        <li class="guide-item">
+          <div class="item-bullet"></div>
+          <div class="item-content">
+            サポートに必要な資料や端末（スマホ・PCなど）をご用意ください
+          </div>
+        </li>
+        <li class="guide-item">
+          <div class="item-bullet"></div>
+          <div class="item-content">
+            静かな環境でのご対応をお願いいたします
+          </div>
+        </li>
+        <li class="guide-item">
+          <div class="item-bullet"></div>
+          <div class="item-content">
+            ペットや小さなお子さまがいる場合は安全にご配慮ください
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- サポート範囲 -->
+    <section class="guide-section">
+      <h2 class="section-title">
+        <div class="section-icon"><i class="fas fa-hands-helping"></i></div>
+        サポート範囲
+      </h2>
+      <ul class="guide-list">
+        <li class="guide-item">
+          <div class="item-bullet"></div>
+          <div class="item-content">
+            ご依頼内容に基づいたサポートを行います
+          </div>
+        </li>
+        <li class="guide-item">
+          <div class="item-bullet"></div>
+          <div class="item-content">
+            医療・法律など専門資格を要する内容は対応できません
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- お支払いについて -->
+    <section class="guide-section">
+      <h2 class="section-title">
+        <div class="section-icon"><i class="fas fa-credit-card"></i></div>
+        お支払いについて
+      </h2>
+      <ul class="guide-list">
+        <li class="guide-item">
+          <div class="item-bullet"></div>
+          <div class="item-content">
+            訪問サポートは<span class="highlight-text">前払い制</span>です
+          </div>
+        </li>
+        <li class="guide-item">
+          <div class="item-bullet"></div>
+          <div class="item-content">
+            公式LINEまたは予約ページからお支払い後、ご予約が確定します
+          </div>
+        </li>
+        <li class="guide-item">
+          <div class="item-bullet"></div>
+          <div class="item-content">
+            お支払い方法：クレジットカード／銀行振込
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 前払い制の重要なお知らせ -->
+    <div class="payment-notice">
+      <h3><i class="fas fa-exclamation-triangle"></i>前払い制について</h3>
+      <p>
+        安全で確実なサービス提供のため、訪問サポートは事前決済をお願いしております。<br>
+        お支払い完了後にご予約が確定し、サポート日程の調整を行わせていただきます。
+      </p>
+    </div>
+
+    <!-- その他の注意事項 -->
+    <section class="guide-section">
+      <h2 class="section-title">
+        <div class="section-icon"><i class="fas fa-shield-alt"></i></div>
+        その他の注意事項
+      </h2>
+      <ul class="guide-list">
+        <li class="guide-item">
+          <div class="item-bullet"></div>
+          <div class="item-content">
+            訪問中の安全確保や貴重品の管理はご自身でお願いいたします
+          </div>
+        </li>
+        <li class="guide-item">
+          <div class="item-bullet"></div>
+          <div class="item-content">
+            プライバシーに配慮し、無断で撮影・録音は行いません
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- お問い合わせセクション -->
+    <section class="contact-section">
+      <h3>ご不明な点がございましたら</h3>
+      <p>
+        利用ガイドについてご質問やご不明な点がございましたら、<br>
+        お気軽にお問い合わせください。
+      </p>
+      <a href="https://lin.ee/YLMuQKg" target="_blank" rel="noopener noreferrer" class="contact-button">
+        <i class="fab fa-line"></i>
+        LINEで問い合わせる
+      </a>
+    </section>
+
+    <!-- メインページに戻るリンク -->
+    <div class="back-to-lp">
+      <a href="index仮ページ.html" class="back-link">
+        <i class="fas fa-arrow-left"></i>
+        メインページに戻る
+      </a>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  
+  <script>
+    // ページ読み込み時のアニメーション制御
+    document.addEventListener('DOMContentLoaded', function() {
+      // スクロールアニメーションの初期化
+      const sections = document.querySelectorAll('.guide-section');
+      sections.forEach((section, index) => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(30px)';
+        
+        setTimeout(() => {
+          section.style.transition = 'all 0.6s ease-out';
+          section.style.opacity = '1';
+          section.style.transform = 'translateY(0)';
+        }, index * 100);
+      });
+
+      // ガイドアイテムのホバーエフェクト
+      document.querySelectorAll('.guide-item').forEach(item => {
+        item.addEventListener('mouseenter', function() {
+          const bullet = this.querySelector('.item-bullet');
+          if (bullet) {
+            bullet.style.transform = 'scale(1.3)';
+            bullet.style.background = '#667eea';
+          }
+        });
+
+        item.addEventListener('mouseleave', function() {
+          const bullet = this.querySelector('.item-bullet');
+          if (bullet) {
+            bullet.style.transform = 'scale(1)';
+            bullet.style.background = '#48bb78';
+          }
+        });
+      });
+
+      // セクションアイコンのアニメーション
+      document.querySelectorAll('.section-icon').forEach(icon => {
+        icon.addEventListener('mouseenter', function() {
+          this.style.transform = 'rotate(10deg) scale(1.1)';
+        });
+
+        icon.addEventListener('mouseleave', function() {
+          this.style.transform = 'rotate(0deg) scale(1)';
+        });
+      });
+
+      // ページ滞在時間の測定（分析用）
+      const pageStartTime = Date.now();
+      
+      window.addEventListener('beforeunload', function() {
+        const timeSpent = Date.now() - pageStartTime;
+        
+        // Google Analytics がある場合の処理
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'page_view_time', {
+            'event_category': 'engagement',
+            'event_label': 'visit_guide_page',
+            'value': Math.round(timeSpent / 1000)
+          });
+        }
+      });
+
+      // ガイド項目のクリック追跡
+      document.querySelectorAll('.guide-item').forEach(item => {
+        item.addEventListener('click', function() {
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'guide_item_click', {
+              'event_category': 'engagement',
+              'event_label': this.textContent.trim().substring(0, 50),
+              'value': 1
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
