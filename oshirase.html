@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お知らせ | ケーサポ - 習慣が続く、人が支える</title>
+  <meta name="description" content="ケーサポからの最新情報をお届けします。システム更新、サポートメッセージ、リマインド、お得情報など。">
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      line-height: 1.6;
+      color: #2d3748;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .header {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .header h1 {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      color: #2d3748;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .header h1 i {
+      color: #48bb78;
+    }
+
+    .header p {
+      color: #4a5568;
+      font-size: 1.1rem;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #48bb78, #38a169);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+    }
+
+    .back-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
+    }
+
+    .notice-categories {
+      display: grid;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .category-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      border-color: #48bb78;
+    }
+
+    .category-header {
+      padding: 1.5rem 2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(135deg, #f7fafc, #edf2f7);
+      border-bottom: 1px solid #e2e8f0;
+      transition: all 0.3s ease;
+    }
+
+    .category-header:hover {
+      background: linear-gradient(135deg, #edf2f7, #e2e8f0);
+    }
+
+    .category-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .category-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    .system .category-icon {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    .message .category-icon {
+      background: linear-gradient(135deg, #48bb78, #38a169);
+    }
+
+    .reminder .category-icon {
+      background: linear-gradient(135deg, #ed8936, #dd6b20);
+    }
+
+    .campaign .category-icon {
+      background: linear-gradient(135deg, #e53e3e, #c53030);
+    }
+
+    .category-details h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #2d3748;
+      margin-bottom: 0.25rem;
+    }
+
+    .category-details p {
+      color: #4a5568;
+      font-size: 0.9rem;
+    }
+
+    .category-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .unread-badge {
+      background: #e53e3e;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      min-width: 50px;
+      text-align: center;
+    }
+
+    .expand-icon {
+      color: #4a5568;
+      transition: transform 0.3s ease;
+    }
+
+    .category-card.expanded .expand-icon {
+      transform: rotate(180deg);
+    }
+
+    .category-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .category-card.expanded .category-content {
+      max-height: 1000px;
+    }
+
+    .notice-list {
+      padding: 0 2rem 2rem;
+    }
+
+    .notice-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid #e2e8f0;
+      transition: all 0.3s ease;
+    }
+
+    .notice-item:last-child {
+      border-bottom: none;
+    }
+
+    .notice-item:hover {
+      background: rgba(72, 187, 120, 0.05);
+      padding-left: 1rem;
+      margin: 0 -1rem;
+      border-radius: 10px;
+    }
+
+    .notice-title {
+      font-weight: 600;
+      color: #2d3748;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .notice-date {
+      color: #4a5568;
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .notice-text {
+      color: #4a5568;
+      line-height: 1.6;
+    }
+
+    .new-badge {
+      background: #e53e3e;
+      color: white;
+      padding: 0.15rem 0.5rem;
+      border-radius: 10px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    .important-badge {
+      background: #ed8936;
+      color: white;
+      padding: 0.15rem 0.5rem;
+      border-radius: 10px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    .footer-note {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      padding: 1.5rem;
+      text-align: center;
+      color: #4a5568;
+      font-size: 0.9rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+
+      .header {
+        padding: 1.5rem;
+      }
+
+      .category-header {
+        padding: 1rem 1.5rem;
+      }
+
+      .notice-list {
+        padding: 0 1.5rem 1.5rem;
+      }
+
+      .category-info {
+        gap: 0.75rem;
+      }
+
+      .category-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    .pulse {
+      animation: pulse 2s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="javascript:history.back()" class="back-button">
+      <i class="fas fa-arrow-left"></i>
+      戻る
+    </a>
+
+    <div class="header">
+      <h1>
+        <i class="fas fa-bell"></i>
+        お知らせ
+      </h1>
+      <p>ケーサポからの最新情報をお届けします</p>
+    </div>
+
+    <div class="notice-categories">
+      <!-- システムからのお知らせ -->
+      <div class="category-card system" data-category="system">
+        <div class="category-header">
+          <div class="category-info">
+            <div class="category-icon">
+              <i class="fas fa-cog"></i>
+            </div>
+            <div class="category-details">
+              <h3>システムからのお知らせ</h3>
+              <p>機能追加・仕様変更・メンテナンス情報</p>
+            </div>
+          </div>
+          <div class="category-meta">
+            <span class="unread-badge">2</span>
+            <i class="fas fa-chevron-down expand-icon"></i>
+          </div>
+        </div>
+        <div class="category-content">
+          <div class="notice-list">
+            <div class="notice-item">
+              <div class="notice-title">
+                <span class="new-badge">NEW</span>
+                新機能「習慣記録グラフ」を追加しました
+              </div>
+              <div class="notice-date">2025年9月15日</div>
+              <div class="notice-text">
+                毎日の習慣記録をグラフで可視化できる新機能をリリースしました。継続状況が一目でわかり、モチベーション向上に役立ちます。
+              </div>
+            </div>
+            <div class="notice-item">
+              <div class="notice-title">
+                <span class="important-badge">重要</span>
+                定期メンテナンスのお知らせ
+              </div>
+              <div class="notice-date">2025年9月12日</div>
+              <div class="notice-text">
+                9月20日（金）午前2:00-4:00にシステムメンテナンスを実施いたします。この間、一部機能がご利用いただけません。ご迷惑をおかけして申し訳ありません。
+              </div>
+            </div>
+            <div class="notice-item">
+              <div class="notice-title">
+                LINE通知タイミング設定機能を改善しました
+              </div>
+              <div class="notice-date">2025年9月8日</div>
+              <div class="notice-text">
+                より柔軟な通知設定が可能になりました。お客様のライフスタイルに合わせてカスタマイズしてください。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 運営からのメッセージ -->
+      <div class="category-card message" data-category="message">
+        <div class="category-header">
+          <div class="category-info">
+            <div class="category-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="category-details">
+              <h3>運営からのメッセージ</h3>
+              <p>励ましの言葉・継続のコツ・サポート情報</p>
+            </div>
+          </div>
+          <div class="category-meta">
+            <span class="unread-badge">5</span>
+            <i class="fas fa-chevron-down expand-icon"></i>
+          </div>
+        </div>
+        <div class="category-content">
+          <div class="notice-list">
+            <div class="notice-item">
+              <div class="notice-title">
+                <span class="new-badge">NEW</span>
+                今週のモチベーション応援メッセージ
+              </div>
+              <div class="notice-date">2025年9月16日</div>
+              <div class="notice-text">
+                こんにちは！今週も一歩ずつ前進していますね。小さな積み重ねが大きな変化を生みます。あなたのペースで大丈夫、私たちがついています！
+              </div>
+            </div>
+            <div class="notice-item">
+              <div class="notice-title">
+                習慣継続のコツ：「if-thenプランニング」
+              </div>
+              <div class="notice-date">2025年9月14日</div>
+              <div class="notice-text">
+                「もし◯◯なら、△△をする」という形で習慣を決めると継続しやすくなります。例：「朝起きたら、まずコップ一杯の水を飲む」など、具体的な条件と行動を結びつけてみてください。
+              </div>
+            </div>
+            <div class="notice-item">
+              <div class="notice-title">
+                サポート体制を強化しました
+              </div>
+              <div class="notice-date">2025年9月10日</div>
+              <div class="notice-text">
+                より丁寧なサポートを提供するため、専属サポーターの研修を実施しました。困ったときは遠慮なくご連絡ください。あなたの習慣化を全力で応援します！
+              </div>
+            </div>
+            <div class="notice-item">
+              <div class="notice-title">
+                継続のための環境づくりのヒント
+              </div>
+              <div class="notice-date">2025年9月6日</div>
+              <div class="notice-text">
+                習慣は環境に大きく左右されます。やりたいことがしやすい環境を作り、やりたくないことは物理的に離れた場所に置く。この小さな工夫が大きな違いを生みます。
+              </div>
+            </div>
+            <div class="notice-item">
+              <div class="notice-title">
+                あなたの成長を実感していますか？
+              </div>
+              <div class="notice-date">2025年9月3日</div>
+              <div class="notice-text">
+                毎日の小さな積み重ねは、意外と自分では気づきにくいもの。振り返り機能を使って、1週間前、1ヶ月前の自分と比べてみてください。きっと成長を実感できるはずです。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ユーザーへのリマインド -->
+      <div class="category-card reminder" data-category="reminder">
+        <div class="category-header">
+          <div class="category-info">
+            <div class="category-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="category-details">
+              <h3>リマインド</h3>
+              <p>目標設定・振り返り・定期チェック</p>
+            </div>
+          </div>
+          <div class="category-meta">
+            <span class="unread-badge">3</span>
+            <i class="fas fa-chevron-down expand-icon"></i>
+          </div>
+        </div>
+        <div class="category-content">
+          <div class="notice-list">
+            <div class="notice-item">
+              <div class="notice-title">
+                <span class="new-badge">NEW</span>
+                今月の目標設定はお済みですか？
+              </div>
+              <div class="notice-date">2025年9月16日</div>
+              <div class="notice-text">
+                9月も半月が経ちました。今月の習慣化目標を設定されていない方は、ぜひ「目標を入力」ボタンから設定してみてください。明確な目標があると継続しやすくなります。
+              </div>
+            </div>
+            <div class="notice-item">
+              <div class="notice-title">
+                週末の振り返りタイムです
+              </div>
+              <div class="notice-date">2025年9月15日</div>
+              <div class="notice-text">
+                今週はいかがでしたか？うまくいったこと、改善したいことを振り返ってみましょう。小さな気づきが次週の習慣継続につながります。「振り返りを見る」から記録してください。
+              </div>
+            </div>
+            <div class="notice-item">
+              <div class="notice-title">
+                習慣記録の確認をお忘れなく
+              </div>
+              <div class="notice-date">2025年9月13日</div>
+              <div class="notice-text">
+                最近の習慣記録はいかがですか？継続状況をチェックして、必要に応じて目標や方法を調整してみましょう。完璧を目指さず、続けることが一番大切です。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- お得情報やイベント -->
+      <div class="category-card campaign" data-category="campaign">
+        <div class="category-header">
+          <div class="category-info">
+            <div class="category-icon">
+              <i class="fas fa-gift"></i>
+            </div>
+            <div class="category-details">
+              <h3>お得情報・イベント</h3>
+              <p>キャンペーン・相談会・特典情報</p>
+            </div>
+          </div>
+          <div class="category-meta">
+            <span class="unread-badge">1</span>
+            <i class="fas fa-chevron-down expand-icon"></i>
+          </div>
+        </div>
+        <div class="category-content">
+          <div class="notice-list">
+            <div class="notice-item">
+              <div class="notice-title">
+                <span class="new-badge">NEW</span>
+                オンライン習慣化相談会のご案内
+              </div>
+              <div class="notice-date">2025年9月16日</div>
+              <div class="notice-text">
+                9月25日（水）20:00-21:00にオンライン習慣化相談会を開催します。習慣化の悩みを直接相談できる貴重な機会です。参加費無料、事前予約制です。詳細とお申込みはLINEからお問い合わせください。
+              </div>
+            </div>
+            <div class="notice-item">
+              <div class="notice-title">
+                友達紹介キャンペーン実施中
+              </div>
+              <div class="notice-date">2025年9月5日</div>
+              <div class="notice-text">
+                お友達をご紹介いただくと、紹介者様・被紹介者様ともに初月50%オフの特典をプレゼント！習慣化を一緒に頑張る仲間がいると、より続けやすくなります。
+              </div>
+            </div>
+            <div class="notice-item">
+              <div class="notice-title">
+                継続達成者様への特典について
+              </div>
+              <div class="notice-date">2025年9月1日</div>
+              <div class="notice-text">
+                30日連続で習慣を継続された方には、オリジナル習慣化手帳をプレゼント！60日達成の方には個別コーチングセッション1回無料など、継続を応援する特典をご用意しています。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      <p><i class="fas fa-info-circle"></i> お知らせは定期的に更新されます</p>
+      <p>重要な情報は見逃さないよう、こまめにチェックしてくださいね</p>
+    </div>
+  </div>
+
+  <script>
+    // カテゴリー展開・収縮機能
+    document.querySelectorAll('.category-header').forEach(header => {
+      header.addEventListener('click', function() {
+        const card = this.parentElement;
+        const isExpanded = card.classList.contains('expanded');
+        
+        // 他のカードを閉じる
+        document.querySelectorAll('.category-card').forEach(c => {
+          c.classList.remove('expanded');
+        });
+        
+        // クリックされたカードを開閉
+        if (!isExpanded) {
+          card.classList.add('expanded');
+          
+          // 未読バッジをクリア（実際の実装では、読まれたアイテムをマークする処理を追加）
+          const unreadBadge = card.querySelector('.unread-badge');
+          if (unreadBadge) {
+            setTimeout(() => {
+              unreadBadge.textContent = '0';
+              unreadBadge.style.background = '#48bb78';
+            }, 1000);
+          }
+        }
+      });
+    });
+
+    // お知らせアイテムのクリック効果
+    document.querySelectorAll('.notice-item').forEach(item => {
+      item.addEventListener('click', function() {
+        // クリック時の視覚的フィードバック
+        this.style.background = 'rgba(72, 187, 120, 0.1)';
+        setTimeout(() => {
+          this.style.background = '';
+        }, 300);
+        
+        // NEWバッジを削除
+        const newBadge = this.querySelector('.new-badge');
+        if (newBadge) {
+          setTimeout(() => {
+            newBadge.style.opacity = '0';
+            setTimeout(() => {
+              newBadge.remove();
+            }, 300);
+          }, 500);
+        }
+      });
+    });
+
+    // 初期表示で最初のカテゴリーを展開
+    document.addEventListener('DOMContentLoaded', function() {
+      const firstCard = document.querySelector('.category-card');
+      if (firstCard) {
+        firstCard.classList.add('expanded');
+      }
+    });
+
+    // 未読バッジにパルス効果を追加
+    document.querySelectorAll('.unread-badge').forEach(badge => {
+      if (parseInt(badge.textContent) > 0) {
+        badge.classList.add('pulse');
+      }
+    });
+  </script>
+</body>
+</html>
