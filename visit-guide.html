@@ -238,6 +238,85 @@
       box-shadow: 0 8px 25px rgba(72, 187, 120, 0.4);
     }
 
+    .detailed-section {
+      background: #fafbfc;
+      border-left: 4px solid #667eea;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+    }
+
+    .detailed-section h3 {
+      color: #2d3748;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .detailed-section h4 {
+      color: #4a5568;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .detailed-section h4::before {
+      content: '▶';
+      position: absolute;
+      left: 0;
+      color: #667eea;
+    }
+
+    .detailed-list {
+      list-style: none;
+      padding: 0 0 0 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .detailed-list li {
+      color: #4a5568;
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+
+    .detailed-list li::before {
+      content: '•';
+      margin-left: -1rem;
+      margin-right: 0.75rem;
+      color: #667eea;
+      font-weight: bold;
+    }
+
+    .final-message {
+      background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+      border: 2px solid #48bb78;
+      border-radius: 15px;
+      padding: 2rem;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .final-message h3 {
+      color: #22543d;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .final-message p {
+      color: #2d3748;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
     /* モバイル対応 */
     @media (max-width: 768px) {
       .guide-container {
@@ -289,6 +368,14 @@
       .contact-section {
         padding: 2rem 1.5rem;
       }
+
+      .detailed-section {
+        padding: 1.5rem;
+      }
+
+      .final-message {
+        padding: 1.5rem;
+      }
     }
 
     /* アニメーション効果 */
@@ -303,15 +390,12 @@
       }
     }
 
-    .guide-section {
+    .guide-section,
+    .detailed-section,
+    .payment-notice,
+    .final-message {
       animation: fadeInUp 0.6s ease-out forwards;
     }
-
-    .guide-section:nth-child(2) { animation-delay: 0.1s; }
-    .guide-section:nth-child(3) { animation-delay: 0.2s; }
-    .guide-section:nth-child(4) { animation-delay: 0.3s; }
-    .guide-section:nth-child(5) { animation-delay: 0.4s; }
-    .guide-section:nth-child(6) { animation-delay: 0.5s; }
   </style>
 </head>
 
@@ -456,6 +540,71 @@
       </ul>
     </section>
 
+    <!-- ご利用にあたり守っていただきたいお願い事項 -->
+    <section class="detailed-section">
+      <h3><i class="fas fa-shield-alt" style="color: #667eea;"></i>ご利用にあたり守っていただきたいお願い事項</h3>
+      <p style="color: #4a5568; margin-bottom: 1.5rem;">サービスを安心してご利用いただくため、以下の内容についてご協力をお願いいたします。</p>
+
+      <h4>1. サポート時間について</h4>
+      <p style="color: #4a5568; margin-left: 1.5rem; margin-bottom: 1rem;">訪問サポートは予約時間に基づいて実施します。大幅な遅れがある場合、予定時間内での対応となる場合がありますのでご了承ください。</p>
+
+      <h4>2. 訪問場所について</h4>
+      <p style="color: #4a5568; margin-left: 1.5rem; margin-bottom: 0.75rem;">訪問先は以下の範囲を対象としています。</p>
+      <ul class="detailed-list">
+        <li>ご自宅</li>
+        <li>図書館・自習室など、利用許可のある学習スペース</li>
+        <li>契約者が利用権を持つ場所</li>
+      </ul>
+      <p style="color: #718096; margin-left: 1.5rem; font-size: 0.95rem; margin-bottom: 1rem;">※公共スペースをご利用される場合は、事前に利用規約や許可状況をご確認ください。</p>
+
+      <h4>3. 訪問環境の配慮</h4>
+      <p style="color: #4a5568; margin-left: 1.5rem; margin-bottom: 0.75rem;">快適にサポートを行うため、以下のご協力をお願いします。</p>
+      <ul class="detailed-list">
+        <li>作業スペースの確保</li>
+        <li>ペットの行動制限や安全確保</li>
+        <li>危険物や立ち入り制限区域の事前共有</li>
+      </ul>
+
+      <h4>4. プライバシー・録音録画について</h4>
+      <p style="color: #4a5568; margin-left: 1.5rem; margin-bottom: 1rem;">訪問中の録音・録画は原則禁止しております。必要がある場合は、事前にスタッフへご相談ください。</p>
+
+      <h4>5. サポート範囲について</h4>
+      <p style="color: #4a5568; margin-left: 1.5rem; margin-bottom: 0.75rem;">本サービスは「習慣形成・学習支援」を目的としています。以下の内容は対象外です。</p>
+      <ul class="detailed-list">
+        <li>医療・心理カウンセリング行為</li>
+        <li>法律・資格が必要な専門指導</li>
+        <li>代行作業（宿題や業務の代理実施 など）</li>
+      </ul>
+      <p style="color: #4a5568; margin-left: 1.5rem; margin-bottom: 1rem;">必要な場合は適切な専門サービスをご案内させていただく場合があります。</p>
+
+      <h4>6. ハラスメント行為・コンタクト制限</h4>
+      <p style="color: #4a5568; margin-left: 1.5rem; margin-bottom: 0.75rem;">以下の行為は禁止です。</p>
+      <ul class="detailed-list">
+        <li>スタッフへの暴言・威圧・迷惑行為</li>
+        <li>個人連絡先の交換要求や、契約外の依頼</li>
+        <li>不適切な言動・行動全般</li>
+      </ul>
+      <p style="color: #4a5568; margin-left: 1.5rem; margin-bottom: 1rem;">安全なサービス提供のため、状況に応じてサービス停止または契約解除となる場合があります。</p>
+
+      <h4>7. キャンセル・日程変更</h4>
+      <p style="color: #4a5568; margin-left: 1.5rem; margin-bottom: 1rem;">キャンセルや日程変更は、可能な限り前日18:00までにご連絡ください。それ以降の変更については、キャンセルポリシーに基づき対応いたします。</p>
+
+      <h4>8. 継続利用と更新について</h4>
+      <p style="color: #4a5568; margin-left: 1.5rem; margin-bottom: 1rem;">サービスはサブスクリプション形式となります。解約方法・更新ルール・請求タイミングなどは利用規約・支払い案内メール内の説明をご確認ください。</p>
+
+      <h4>9. 安全に関するお願い</h4>
+      <p style="color: #4a5568; margin-left: 1.5rem; margin-bottom: 1rem;">お客様とスタッフの安全のため、外出サポートや移動が伴う支援を行う場合は、状況に応じた判断をさせていただきます。</p>
+    </section>
+
+    <!-- 最後に -->
+    <div class="final-message">
+      <h3><i class="fas fa-heart" style="color: #48bb78;"></i>最後に</h3>
+      <p>
+        本サービスは、お客様とサポーターの相互の信頼と協力の上で成り立つサービスです。<br>
+        安心して継続いただける環境づくりのため、ご理解とご協力をお願いいたします。
+      </p>
+    </div>
+
     <!-- お問い合わせセクション -->
     <section class="contact-section">
       <h3>ご不明な点がございましたら</h3>
@@ -484,7 +633,7 @@
     // ページ読み込み時のアニメーション制御
     document.addEventListener('DOMContentLoaded', function() {
       // スクロールアニメーションの初期化
-      const sections = document.querySelectorAll('.guide-section');
+      const sections = document.querySelectorAll('.guide-section, .detailed-section, .payment-notice, .final-message');
       sections.forEach((section, index) => {
         section.style.opacity = '0';
         section.style.transform = 'translateY(30px)';
